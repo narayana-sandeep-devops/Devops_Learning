@@ -1,0 +1,12 @@
+--> Lambda with AI Agent
+
+- Introduction to AWS Lambda
+    * What is Lambda?
+        - 
+    * Event-Driven Functionality of AWS Lambda
+    * Key features of AWS Lambda
+    * Lambda execution time limit is 15 mins.
+- Lambda vs EC2
+    * Lambda:
+    * EC2:
+        > 

@@ -1,0 +1,30 @@
+GIT:
+- What is GIT & Why do we need to use it?
+- Difference between DVCS vs CVCSWhat is rollback & how to do Rollback?
+- Explain Stages/Architecture of GIT?
+- What is Local Repo?
+- What is Git Branch?
+- What is default branch in git?
+- Difference between GIT & GitHub?
+- Difference between git clone and git fork?
+- difference between git merge vs git rebase?
+- Difference between git merge vs git revert?
+- Difference between git pull vs git fetch?
+- Difference between git pull vs git clone?
+- Difference between git pull vs git push?
+- Difference between git pull vs git push?
+- what is git cherry-pick & .gitignore & git restore & stash
+- Difference between git merge vs git cherry-pick?
+
+MAVEN: 
+- What is Maven?
+- Types of Artifacts?
+- What is POM.XML?
+- What is Maven Home path?
+- Explain maven lifecycle?
+- what is a Goal and how it will work?
+- what is difference between Maven & ANT?
+
+
+CICD:
+-  

@@ -1,0 +1,49 @@
+# Scenario 1 — 
+Install Jenkins on an Ubuntu server and 
+create your first Declarative Pipeline that checks out code from Git and produces an artifact
+
+Real-time situation: You’ve been given a fresh Ubuntu VM (or cloud instance) 
+and the dev team expects CI for their repo. Your first job is to install Jenkins, 
+secure it minimally, create a pipeline job that checks out a simple repository and 
+produces/archives an artifact so the team can see CI working.
+
+Objective (what you’ll accomplish): Install Jenkins (systemd service), 
+open the Jenkins web UI, unlock and configure basic plugins, create a pipeline that checks out 
+code from Git (or a sample repo), runs a simple build step, and archives an artifact. 
+You’ll also learn where to look for logs and common troubleshooting steps.
+
+--> Prerequisites:--
+
+You need sudo on the server, an instance with at least 2GB RAM (more is better), 
+and internet access from that instance so Jenkins can download plugins and 
+you can pull from a Git repo. I’ll show Ubuntu commands.
+
+--> Step-by-step (follow these on the server / Jenkins UI
+
+Step 1:
+    - Install Java (Jenkins runtime): Jenkins requires Java. 
+    On Ubuntu run this to install OpenJDK 11 and verify it.
+        * sudo apt update
+        * sudo apt install -y openjdk-11-jdk
+        * java -version
+    - Expect a Java 11 output. If java is missing, the pipeline agents will fail when running shell steps.
+
+Step 2:
+    - Add Jenkins apt repo and install Jenkins: (modern, commonly used approach)
+        * curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+        /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+        * echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+          https://pkg.jenkins.io/debian-stable binary/" | \
+          sudo tee /etc/apt/sources.list.d/jenkins.list
+
+        * sudo apt update
+        * sudo apt install -y jenkins
+    - After install start/enable the service:
+        * sudo systemctl start jenkins
+        * sudo systemctl enable jenkins
+        * sudo systemctl status jenkins
+
+
+
+- 
