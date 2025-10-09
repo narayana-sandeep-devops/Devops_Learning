@@ -1,0 +1,125 @@
+
+MAVEN:
+
+- Maven is build automation tool specially for java applications edveloped by apache, its a open source.
+- we can use for project management
+- 
+
+
+
+Source Code  --> BUILD --> TEST --> ARTIFACT --> DEPLOYMENT
+
+--> ARTIFACT: 
+- its final product of our code.
+- developers will give raw code that code we are going to convert into artifact.
+
+--> Types:
+1. jar : JAVA Archive       : Backend code
+2. war : Web Archive        : Frontend Code + BAckend code
+3. ear : Enterprise archive : jar + war
+
+-- These jar, war, ear files contains Source Code + Dependencies
+
+
+--> JAR FILE:
+-  .java --> compile --> .class --> .jar file
+- .java     : basic raw
+- .class    : executable file
+- .jar      : artifact
+
+- all the artifacts are going to created by a build tool.
+
+--> MAVEN:
+- Maven is the build tool.
+- its a free and open source.
+- build: process of adding the libs & dependencies to code.
+- its also called as project management tool.
+- it will manage the complete structure of the project
+- the main file in the maven tool is POM.xml
+
+- POM.XML: its a file which consist of complete project information.
+ex: name, artifact, tools, libs, dependencies..
+
+- POM : PROJECT OBJECT MODEL
+- XML : Extensible Markup Language
+
+- Who give POM.XML : developers
+- Develeoprs will give both code and pom.xml in github
+
+- Maven is written on java by apache software foundation.
+- SupportL Java : 1.8.0
+- Year          : 2004
+- Home Path     : .m2
+
+--> Practical Part:
+    * yum install git java-1.8.0-openjdk maven -y
+    * mvn -v
+    * git clone <link>
+    * tree
+
+--> Maven LifeCycle:
+    - a command used to run a task.
+    - Goals refers pom.xml to execute.
+
+--> Plugins:
+- it a small software with makes our work automated.
+- instead of downloading tools we can download plugins.
+- This plugins will download automatically when we run goals.
+
+- mvn --version
+-->  Phases:
+- mvn compile   : used to compile the code (.java [src] --> /class [Target])
+- mvn test      : used to tet the code    (.java [test]  --> .class [target])
+- mvn package   : used to create artifact
+- mvn install   : used to copy artifact to .m2 (project folder --> .m2)
+- mvn clean     : to delete the target folder
+- mvn clean package : compile --> install
+
+--> Maven Life Cycle:
+- Clean     :   Project will be cleaned unnessary files
+- Validate  :   Validate the project is correct and all necessary infromation is available
+- compile   :   Compile the source code of the project (Which converts .java to .class in target folder)
+- test      :   test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+- package   :   take the compiled code and package it in its distribution format, such as JAR. 
+- verify    :   run any checks on results of integration tests to ensure quality criteria are met.
+- install   :   install the package into the local repository (.m2)
+- deploy    :   done in the build envrionment, copies the final package to the remote repository for sharing with other developers and projects.
+
+
+--> Problems without Maven:
+- we can't create artifact.
+- we can't create project structure.
+- We can't build and deploy the apps.
+
+--> Alternatives:
+- MAVEN, ANT, GRADEL
+
+--> MAVEN VS ANT.
+- Maven is Build & Project Management, ANT is only Build tool.
+- Maven has POM.XML, ANT has BUILD.XML
+- Maven has a lifecycle, ANT will not have lifecycle
+- Maven Plugins are reusable, ANT scripts are not resusable.
+- Maven is declarative, ANT is procedural.
+
+--> Programming VS BUILD:
+
+- JAVA : MAVEN
+- PYTHON : GRADEL
+- .NET : VS Code
+- C, C++ : MAKE FILE
+- node.js : npm
+
+
+--> MAVEN ISSUES:
+- if the goals are not executing check pom.xml in that folder.
+
+[ERROR] the goal you specified required a project to execute but 
+there is no POM in this directory (/root). 
+Please verify you invoked Maven from the correct directory.
+
+- MAVEN issues - 2:
+- if the build failed and env if i have pom.xml on my folder what is the reason?
+
+
+
+

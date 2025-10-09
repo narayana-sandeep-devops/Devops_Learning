@@ -1,0 +1,24 @@
+--> Docker
+
+- cloud Hypervisor is called - Xen/Nitro
+
+
+Note: By Default Docker works with the root user and other users can only access to Docker with sudo commands. However, 
+we can bypass the sudo commands by creating a new group with the name docker ad add ec2_user.
+
+    * sudo groupadd docker
+    * sudo usermod -a -G docker ec2-user
+    * newgrp docker
+    * sudo chmod 666 /var/run/docker.sock
+
+- Default location
+    * docker version            --> To check the version in machine
+    * docker --version          --> To check both client and server status
+    * docker pull <image>       --> to downloa the image from docker hub
+    * docker run -dt <image>
+    * docker run -dt --name <container-Name> <image>
+    * docker ps 
+    * docker ps -a 
+    * docker exec -it <container-id/name> /bin/bash
+    * docker run -dt --name <container-name> -p source-port:container-port <image>
+

@@ -1,0 +1,26 @@
+What is Tomcat?
+-   Tomcat is an open-source web server and servlet. The Apache software Foundation has developed it. It is used widely for hosting Java-based applications on the web. It is built on Java techonoligies and implements the Java Servlet and JavaServer Pages (JSP)
+
+###########TOMCAT###########
+
+#Install Tomcat
+
+    * wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.55/bin/apache-tomcat-9.0.55.tar.gz
+
+#unzip tomcat binary
+    * untar -zvxf apache-tomcat-9.0.55.tar.gz
+
+# rename it if required 
+    * mv <apache-tomcat-9.0.55> tomcat
+    * cd tomcat
+    * cd bin
+    * chmod +x startup.sh
+    * chmod +x shutdown.sh
+    * sh startup.sh  --> to Start
+    * sh shutdown.sh  --> to Stop
+
+#To change port number ---- /conf/server.xml
+war file shold be placed in ---------- /tomcat/webapps
+
+############################################
+

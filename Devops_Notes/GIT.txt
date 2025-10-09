@@ -1,0 +1,186 @@
+=====> GIT:
+- GIT is used to track the files.
+- It will maintain multiple versions of the same file.
+- It is platform-independent.
+- It is free and open-source.
+- They can handle larger projects eficiently.
+- It is 3rd generation of vcs.
+- It is written on C Programming.
+- It came on the year 2005
+
+
+* CVCS : Centralised Version control system
+  - Stores code on single Repo.
+  - ex: SVN
+
+* DVCS : Distributed Version Control System
+  - Stores code on multiple repos.
+  - ex: GIT
+
+--> Why GIT: to store each version of code seperately.
+  Purpose: To Rollback
+  Rollback means going back to previous version of the application
+  v2 <-- V3
+
+--> STAGES OF GIT:
+- Working Directory   :   Where we write the code
+- Staging Area        :   Where we track the code
+- Repository          :   Where we atore the tracked code
+
+--> Practical Part:
+
+1. Create a Server and Login into it
+  - sudio -i
+  - mkdir git
+  - cd git 
+
+2. Install GIT
+  - yum install git 
+  - git init (without git init, we cant run git commands)
+
+3. Working with GIT
+  - touch index.html (once you create a file, it will be in working area)
+  - git status : to check status of a file
+  - git add index.html : to track the file (move to staging area)
+  - git commit -m "commit -1"  : to commit the file (move to Repository)
+  - git log 
+  - git log --oneline   : it shows commits history in single line
+  - git log --oneline -2 : it shows last 2 commits history
+  - git show commit_id   : to show which file is commited for this id.
+  - git status           : to show the current status of files
+
+--> User Configuration:
+  - By default all the commits will come with defaults user.
+  - So we need to change the username as per our requirement
+    - git config user.name "Sandeep Narayana"
+    - git config user.email "sandeep.narayana@outlook.com"
+
+-->  GIT RESTORE:
+- This command will untrack the tracked files.
+- unfortunately you track any file and want to untrack the file.
+   * git restore --staged <file_name>
+   * git rm --cached <file_name>
+- This command also used to recover the deleted file.
+   * git restore <file_name>
+
+--> GIT STASH   (Stash means hidding)
+  - To hide the tracked files for temporary purpose.
+  - git stash           : to stash the file
+  - git stash apply     : to unstash the file
+  - git stash list      : to list the stashes
+  - git stash clear     : to clear the stash
+
+
+--> BRANCHES:
+- It's an individual line of development for code.
+- We create different branches in real-time.
+- Each developer will work on their own branch.
+- At the end we will combine all together.
+- Default branch is Master.
+
+  * git branch                    : to list the branches
+  * git branch <branch-name>      : to create a new branch
+  * git checkout <branch-name>    : to switch between the branches
+  * git checkout -b <branch_name> : to create and switch from one branch to another
+  * git branch -D <branch_Name>   : to delete the branch
+  * git branch -m <old_name> <new_branch_Name> : To rename the branch
+
+
+--> Creating GITHUB account:
+Note: in github passwords are not accepted, we need to use token
+
+Profile --> Settings --> developer settings --> Personal access token --> classic
+generate new token --> classic --> name: <token_name>  --> select 6 scopes --> generate
+
+* touch file1.txt
+* git add file1.txt
+* git commit -m "Commit-1"
+* git branch -M main
+* git remote add origin https://github.com/narayana-sandeep-devops/devops_practice.git
+* git push -u origin main
+
+
+--> GIT clone
+- it download code from github(remote) to git (local), by using the git clone.
+- git clone <link>
+
+--> GIT FORK:
+- it download code from one account to another 
+
+- For git clone and git fork repos must be public.
+
+
+--> GIT merge
+- It will merge the files between branches
+
+--> GIT Rebase:
+- Used to add files between 2 different branches
+  * git checkout Master
+  * git rebase train
+  * git rebase recharge
+
+  --> MERGE VS Rebase
+  - Merge for public repos, rebase for private
+  - Merge stores history, rebase will not share the entire history
+  - Merge will show files, rebase will not show files
+
+  --> PULL Request (PR)
+  - in GITHUB we use pull Request (PR) to do merging.
+
+--> GIT Revert
+- Used to revert (get back) the files we merge.
+  * git revert dth
+  * git revert recharge 
+
+--> GIT pull
+- it will take the files from github to git (local)
+- to get the latest changes from remote to local
+
+  * git pull origin Master
+
+--> GIT fetch
+- used to show the changed files from github to git.
+
+  * git fetch
+
+--> CHERRY-PICK
+- Merging the spefici files based on commits.
+  * git cherry-pick <commit-id>
+-step-by-step Process:
+  * mkdir test1
+  * cd test1/
+  * touch java{1..3}
+  * git init
+  * git add java*
+  * git commit -m "java-commits" java*
+  * git branch
+  * git checkout -b branch1
+  * touch python{1..5}
+  * git add python*
+  * git commit "commit python" python*
+  * touch php{1..5}
+  * git add php*
+  * git commit -m "php commits" php*
+  * touch dotnet{1..5}
+  * git add dotnet*
+  * git commit -m "dotnet commits" dotnet*
+  * git log --oneline
+  * git cherry-pick <commit-id>
+
+--> MERGE Conflict
+- 
+
+--> .gitignore
+- This file will ignore the files of being tracked.
+- if you write any filename on this .gitignore it wont track the file.
+note: .should be mandatory
+
+
+--> GIT RESET:
+- to undo the commits.
+
+--> Branching Strategy:
+- LONG LIVING BRANCHES: these branches we wont delete and we use them frequently
+- ex: Master, Main
+- SHORT LIVING BRANCHES: these branches we will delete and we dont use them frequently
+- eg: release, bugfix..

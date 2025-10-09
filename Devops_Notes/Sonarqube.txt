@@ -1,0 +1,58 @@
+SONARQUBE:
+
+- Sonarqube is a tool to analyse code.
+- works background java language.
+- 
+
+Code Quality:
+- Rule-1 : Hardcoded values
+- Rule-2 : Duplicates
+- Rule-3 : Arguments caller
+- 600+ Rules
+
+Advantages:
+- We can improve the quality of the code.
+- Developers also increase their skills.
+- We can easily scan n no.of lines code
+- we can apply some custom roles as well
+- we can apply some quality gates.
+
+
+SETUP:
+- Required 4GB RAM and 2 CPU's
+- Dependencies : Java11 or 17
+- Req : t2.medium
+- Port : 9000
+
+--> Installation of Sonarqube
+- amazon-linux-extras install java-openjdk11 -y
+- sudo apt install java-11-amazon-corretto
+- cd /opt/
+- sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.6.50800.zip
+- sudo unzip sonarqube-8.9.6.500800.zip
+
+- sudo useradd sonar
+- sudo chown sonar:sonar sonarqube-8.9.6.50800 -R
+- sudo chmod 777 sonarqube-8.9.6.50800 -R
+
+- passwd sonar (create password)
+- su - sonar (login as sonar)
+
+#run this on server manually
+- sh /opt/sonarqube-8.9.6.50800/bin/linux-x86-64/sonar.sh start
+- sh /opt/sonarqube-8.9.6.50800/bin/linux-x86-64/sonar.sh status
+
+- sh sonar.sh start or ./sonar.sh start
+- sh sonar.sh status
+
+
+username: sonar
+pwd: abcd@12345
+
+website
+username: admin
+pwd: abcd@12345
+
+--> access in public website
+
+- port : 9000
