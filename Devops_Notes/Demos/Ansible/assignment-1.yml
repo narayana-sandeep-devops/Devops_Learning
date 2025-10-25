@@ -1,0 +1,32 @@
+---
+- name: installing Java
+  hosts: slave-1
+  become: yes
+  tasks:
+    - name: Install Java
+      yum:
+        name: java-1.8.0-openjdk
+        state: present
+
+- name: Installing mysql server
+  hosts: slave-2
+  become: yes
+  tasks:
+    - name: update yum repo
+      yum: 
+        name: '*'
+        state: latest
+    - name: Add mysql repo
+      shell: |
+        wget https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm
+        sudo rpm -Uvh mysql80-community-release-el7-7.noarch.rpm
+        sudo yum makecache
+    - name: Install mysql server
+      yum:
+        name: mariadb
+        state: present
+    - name: Start and enable mysql server
+      service:
+        name: mysqld
+        state: started
+        enabled: yes

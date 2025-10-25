@@ -1,0 +1,199 @@
+Ansible
+
+Course Content:
+    - What is Ansible
+    - History of Ansible
+    - Benefits
+    - Terminologies of Ansible
+    - How Ansible Works?
+    - Other Automation Terminologies
+    - Free source Ansible and Redhat Ansible
+    - Handouts
+    - Lab Design
+    - Playbook and Automation
+    - Ansible Automation for Remote Clients
+        - Remote Clients hosts File Syntax
+        - Establish Connection to Remote Clients
+    - Ansible AWX
+    - Ansible Tower
+
+
+
+
+
+
+- Inventory file: here we can add all target ips
+- default path of inventory file is: /etc/ansible/hosts
+- we can crete our own path for inventory
+- Ad-hoc commands
+- Modules
+- Playbooks
+- Roles
+- 
+
+
+--  ssh-keygen
+
+- Create inventory file in ansible default location
+- /etc/ansible/hosts
+
+--> Ansible Ad-hoc Commands:
+    - ansible -i inventory all -a "yum install git -y" -b   (-b --> means become a root)
+    - ansible -i inventory all -a "yum install maven -y" -b
+    - ansible -i inventory all -a "git --version" -b
+    - ansible -i inventory all -a "touch file100" -b 
+    - ansible all -a "touch file200" -b 
+    - ansible all -m ping
+
+--> Ansible Additional Commands:
+    - ansible
+    - ansible-playbook
+    - ansible-vault
+    - ansile-config
+    - ansible-Connection
+    - ansible-console
+    - ansile-doc
+    - ansible-galaxy
+    - ansible-inventory
+    - ansible-pull
+
+
+
+--> disabling verification of each node while ssh a new node.
+    - ansible.cfg is not available by default. we need to create manually
+    - sudo vi /etc/ansible/ansible.cfg #create config file
+    [defaults]
+    host_key_checking = False
+
+--> Groups
+
+--> Ansible Playbooks
+    - It will install web server in all servers
+    - ansible all -m yum -a "name = httpd status = latest"   # yum module 
+    - ansible all -m service -a "name = https state = started" -b   # to start service # Service Module
+    - by using playbook, I can create multiple tasks in one time
+    - we have write yml files for task.
+    - we can execute the playbook by using 
+    - ansible-playbook <yaml file name>
+        - ex: ansible-playbook playbook1.yml
+    - tags:
+        - by using tags you can run a specific task in playbooks instead of running all tasks everytime.
+
+
+#Single TAG: Ansible-playbook name.yml --tags a
+#MULTI TAG: ansible-playbook name.yml --tags b,c
+#SKIP TAG: ansible-playbook name.yml --skip-tags "c"
+#MULTI SKIP TAGS: ansible-playbook name.yml --skip-tags "c,d"
+
+--> Variables:
+"{{Veriable_name}}"
+--> Handler:
+    - Handlers are commonly used in Ansible to start, restart and stop services. 
+    If your playbook calls for changing configuration files, you'll almost certainly 
+    need to restart a service to see the changes take effect.
+    - Handler will allow if any changes takes place in you application then only it will 
+    restart the serve untill handler will not run service even run playbook
+
+--> Loops:
+    - 
+--> Include Modulers
+--> Nodes
+--> Vault:
+    - ansible-vault create secret.yml   #command for creating valut
+    - ansible-vault encrypt secret.yml and give password
+    - ansible-vault decrypt secret.yml  and give password
+--> Roles
+    - ansible-galaxy init <name
+    - Folder structure will be created
+
+--> Dynamic Inventory file process:
+    - A dynamic inventory is an inventory source that Ansible queries at run time to 
+    discover hosts and groups instead of reading a static hosts file. The source can be:
+        - a script that returns JSON,
+        - a builtin inventory plugin (AWS, GCP, Azure, VMware, etc.),
+        - a CMDB, or an orchestration API (like Kubernetes, OpenStack),
+        - a tool like AWX/Tower or Terraform outputs.
+    Dynamic inventory is ideal when hosts are ephemeral (cloud autoscaling), when you group by 
+    tags/labels, or when inventory is large or managed by another system.
+
+    - Why use dynamic inventory — real-time benefits
+        * Autoscaling support — new instances are automatically included (no manual edits).
+        * Tag/label grouping — group hosts by tags (e.g., env=prod, role=web).
+        * Single source of truth — inventory comes from cloud provider / CMDB.
+        * Reduce operational toil — no manual host file updates.
+        * Environment-aware runs — pick hosts with --limit based on dynamic groups.
+
+
+--> Step by Step Process of Dynamic Inventory file:
+    - Launch an Ec2 instances
+    - Apply the role of Administrator access
+    - Create node with name of dev.
+    - Install below commands in ansible master
+        * sudo yum install ansible -y
+        * sudo yum update -y
+        * sudo yum wget https://bootstrap.pypa.io/get-pip.py # download pip
+        * sudo python get-pip-py
+        * sudo pip install boto3
+        * sudo pip show boto3
+        * you might already have this collection installed if you are using the ansible package. 
+        * It is not included in ansible-core. To check whether it is installed, 
+         run ansible-galaxy collection list.
+        * To install it, use:
+        * install ansible galaxy
+        * ansible-galaxy collection install amazon.aws   # amazon aws plugin
+        ------------------------------------------------------------------------->
+        * you need further requirements to be able to use this inventory plugin, see  requirements for details.
+        * To use it in a play book, specify: amazon.aws_ec2.
+        
+
+        * sudo vi /etc/ansible.aws_ec2.yml
+        ---
+        * plus in: amazon.aws_ec2
+        regions:
+          - ap-southeast-1
+        filters:
+          tag:Name:
+            - dev
+              # add multiple tag names here if required
+        # for all
+
+        # if we want to add inventory groups
+
+        keyed_groups:
+          # add hosts to tag_Name_value groups for each aws_ec2 host's tags.Name variable.
+          - key: tags.Name
+            prefix: tag_Name_value
+            separator: ""
+        groups:
+          # add hosts to the group dev if any of the dictionary's keys or values is the word 'dev'.
+          development: 'dev' in (tag|list)"
+        filters:
+          tag:Name
+            - 'dev'
+
+        * ansible-inventory -i aws_ec2.yml --list
+        * ansible-inventory -i aws_ec2.yml --graph
+        ----------------------------------------------------------->
+        * Generate the keys
+            - ssh-key gen 
+        * go to ansible.cfg file and paster the below data
+        * sudo vi /etc/ansible/ansible.cfg
+            [defaults]
+            enable_plugins = aws_ec2
+            inventory = ./aws_ec2.yml
+            host_key_checking = False
+        -- THIS is for HOST = all
+        -- create a aws_ec2.yml file for enable the plugins
+        
+        plus in: amazon.aws.aws_ec2
+        regions:
+          - ap-southeast-1
+        filters:
+          tag:Name:
+            - dev
+              # add multiple tag names here if required
+
+        
+
+
+

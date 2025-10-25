@@ -1,7 +1,7 @@
 --> Docker
 
 - cloud Hypervisor is called - Xen/Nitro
-
+- Containers package an application and its dependecies together, making the application easily runnable on any system that has Docker installed
 
 Note: By Default Docker works with the root user and other users can only access to Docker with sudo commands. However, 
 we can bypass the sudo commands by creating a new group with the name docker ad add ec2_user.

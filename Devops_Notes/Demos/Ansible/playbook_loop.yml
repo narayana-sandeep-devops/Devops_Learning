@@ -1,0 +1,12 @@
+---
+- name: loopr demo
+  hosts: all
+  become: yes
+  tasks:
+    - name: install multiple packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      Loop:
+        - git
+        - maven

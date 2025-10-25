@@ -1,0 +1,13 @@
+---
+- name: multi loopr demo
+  hosts: all
+  become: yes
+  tasks:
+    - name: install multiple packages
+      yum:
+        name: "{{ item.x }}"
+        state: "{{ item.y }}"
+      with_items:
+        - { x: git, y: Latest }
+        - { x: maven, y: present }
+        - { x: nginx, y: absent }

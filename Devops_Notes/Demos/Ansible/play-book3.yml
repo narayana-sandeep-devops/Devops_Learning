@@ -1,0 +1,17 @@
+---
+- name: demo2
+  hosts: all
+  become: yes
+  vars:
+    package_name: Nginx
+  tasks:
+    - name: Install Nginx
+      yum:
+        name: "{{package_name}}" #variable usage
+        state: present
+    - name: Start and enable Nginx service
+      service:
+        name: "{{package_name}}"
+        state: started
+        enabled: yes
+    

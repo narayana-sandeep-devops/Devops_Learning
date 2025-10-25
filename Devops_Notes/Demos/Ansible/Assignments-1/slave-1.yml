@@ -1,0 +1,13 @@
+---
+- name: installing Java on amazon linux 2
+  hosts: slave-1
+  become: yes
+  tasks:
+    - name: Update yum repo
+      yum:
+        name: '*'
+        state: latest
+    - name: install Java
+      yum:
+        name: java-11-amazon-corretto
+        state: present

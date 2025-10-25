@@ -1,0 +1,11 @@
+---
+- name: include modulers demo
+  hosts: all
+  become: yes
+  tasks:
+    - name: call child playbook
+      include_tasks: "{{ items }}"
+      with_items:
+        - child_copy.yml
+        - child_service.yml
+        - child_yum.yml
