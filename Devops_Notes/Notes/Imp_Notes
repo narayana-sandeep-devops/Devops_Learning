@@ -1,0 +1,16 @@
+---
+Docker:
+-- /usr/share/nginx/html   # default web root
+-- /etc/nginx/nginx.conf   # nginx configuration
+
+- Image: Blueprint for creating containers
+- Containers: Running instance of an image
+- Immutable Image: Doesn’t change once built
+- Writable Layer: Each container gets its own modifiable layer
+- Commit: Snapshot your container into a new image
+- Multiple Containers: Can be launched from one image
+
+
+--> to exit from attach use the below commands in sequence
+- CTLR + P, CTLR + Q
+- 

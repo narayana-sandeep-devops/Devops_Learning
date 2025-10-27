@@ -11,7 +11,7 @@ we can bypass the sudo commands by creating a new group with the name docker ad 
     * newgrp docker
     * sudo chmod 666 /var/run/docker.sock
 
-- Default location
+--> Default location
     * docker version            --> To check the version in machine
     * docker --version          --> To check both client and server status
     * docker pull <image>       --> to downloa the image from docker hub
@@ -19,6 +19,52 @@ we can bypass the sudo commands by creating a new group with the name docker ad 
     * docker run -dt --name <container-Name> <image>
     * docker ps 
     * docker ps -a 
-    * docker exec -it <container-id/name> /bin/bash
+    * docker run -dt -p <localhost-port>:<container-port> <image_name>
     * docker run -dt --name <container-name> -p source-port:container-port <image>
+    * docker inspect image nginx   ## to check image details
+    * docker ps -a | grep Exit    ## To check only stopped Containers
+
+--> docker attach
+    - docker attach <container-id>
+    - CTRL + P & CTRL + Q  #use this to exit from container terminal without stopping container.
+ 
+-- To login into the container
+    * docker exec -it <container-id/name> /bin/bash
+
+*****  EXIT[0] About a minut ago
+    - If a container crashed, exit code help debug why
+    - 0 = stopped manually
+    - Non-Zero = Crashed or has an error.
+    - Exited (137) → Out of memory or forced stop
+    - Exited (1)   → App crash or command failed
+
+--> Conatiner usage command: 
+    - docker stats <container-id  # View live resource usage
+
+
+--> Dockerfile Instructions:
+    - by using docker file we can pass the Instructions
+    - 
+
+    * FROM -- To Pull image from docker hub (UBUNTU/centos)
+    * RUN -- apt-get update -y  (locally executable commands)
+    * RUN -- mkdir test
+    * WORKDIR  -- works like CD command
+    * COPY  -- Copy th files from local to docker
+    * ADD -- works like copy instructions, we can add here URL's also , we can call from remote locations
+    * EXPOSE -- Default port number of application
+    * CMD -- Executable command
+    * ENTRYPOINT  -- Same like CMD executable command in container but here we cant change commands
+                        while docker run time.
+
+--> Image building
+    - docker build -t test .
+
+--> Push image to remote resigtry (Dockerhub, ECR)
+    -  
+
+
+=================================>
+
+     
 
