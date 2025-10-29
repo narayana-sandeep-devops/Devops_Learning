@@ -1,0 +1,83 @@
+-- What is MLOPS?
+- MLOPS (Machine Learning Operations) is the discipline of combines MAchine Learning (ML) 
+with DevOps practices to streamline and automate the end-to-end lifecycle of machine learning models. 
+It focuses on collaboration, integration, and continuous delivery of ML models 
+in production environments.
+- MLOPS bridges the gap between data science and IT operations, enabling organizations to deploy, monitor, and manage ML models effectively. 
+- MLOPS encompasses various aspects, including data preparation, model training, model deployment, 
+monitoring, and governance.
+- MLOPS aims to improve the reliability, scalability, and efficiency of ML model deployment,
+ensuring that models deliver consistent and accurate results in real-world applications.
+
+--> Pupose of MLOPS: Make ML models Production-ready, continously improving, and scalable.
+- The purpose of MLOPS is to streamline and automate the end-to-end lifecycle of machine learning models,
+from development to deployment and monitoring.
+- Repidly deploy and Monitor ML Models in production environments.
+- Automate retraining based on new data or performance degradation.
+- Ensure compliance, auditability and version control of models and data.
+- Facilitate collaboration between data scientists, ML engineers, and Devops Engineers.
+
+--> REal-Worl imporatance:
+- in enterprise like Netflix, Uber, Amazom, Google thousands of ML models are deployed every week.
+- Without MLOPS, manual management causes:
+    - Model Drift
+    - Version Choas
+    - Data Leakage
+    - Deployment Failures
+    - Scalability Issues
+    - Security Vulnerabilities
+    - Compliance Risks
+    - Collaboration Breakdowns
+    - Inefficient Resource Utilization
+    - Delayed Time-to-Market
+    - Increased Operational Costs
+    - Reduced Model Performance
+
+  --> Evolution: DEVOPS -> DataOps -> MLOPS
+  DEVOPS -> Focus on Software Build, test, deploy automation -> Tools Jenkins, Docker, Kubernetes -> Out come - Faster app delivery
+  DataOps -> Focus on Data Pipeline automation, data quality -> Tools Airflow, kafka, dbt -> Out come - Reliable data flow
+  MLOPS -> Focus on End-to-End ML lifecycle automation -> Tools MLflow, Kubeflow, sagemaker -> Outcome - Reliable model delivery
+
+  -->Core MLOPS LifeCycle Phases:
+  - Data Collection & Validation: Ensure high-quality, labeled and consistent data
+  - Feature Engineering: Transform raw data into meaningful features
+  - Model Training & Experimetal Tracking - Track metrics using MLflow, W&B
+  - Model Packaging: Containerize models with Docker
+  - Model Deployment: Deploy via REST, gRPC, or batch systems
+  - Monitoring & Drift Detection - Track performance degradation
+  - Continous Training - Automate retraining Pipelines
+
+--> MLOPS Architecture Layers:
+- Data Layer: Data Sources, Pipelines, Sotrage (S3, BigQuery, Snowflake)
+- Model Layer: Training, experiment tracking, versioning (MLflow, sagemaker)
+- Deployment Layer: Serving infrastructure, CI/CD (Kubernetes, Docker, Jenkins)
+- Monitoring Layer: Performance tracking, alerting (Prometheus, Grafana), Model Drift Detection
+
+-> Key MLOPS Principles:
+- Automation: Automate data pipelines, model training, deployment, and monitoring.
+- Versioning: Track versions of data, code, and models for reproducibility.
+- Collaboration: Foster teamwork between data scientists, ML engineers, and DevOps.
+- Scalability: Design systems to handle growing data and model complexity.
+- Monitoring: Continuously monitor model performance and data quality in production.
+- Governance: Ensure compliance with regulations and ethical standards.
+
+--> Hands-on Labs
+ - Goal: Buiild a mini MLOPS Pipeline
+  Step 1: Tain ML Model
+  Step 2: Track the MLflow
+  Step 3: Containrize with Docker
+  Step 4: Deploy & Monitor 
+
+--> Production MLOPS Setup
+ - Data Engineers manage ETL and feature pipelines (Airflow, spark)
+ - ML Engineers develop, train, and validate models (TensorFlow, PyTorch, Sagemaker)
+ - DevOps Engineers handle deployment, scaling, and monitoring (Kubernetes, Prometheus)
+ - Monitoring Teams use Prometheus, Grafana and eveidently AI for drift Detection
+ - Automation triggers retraining workflows through Airflows DAGs or GitHub Actions.
+
+-- Prerequisites for MLOPS for DevOps Engineers Course:
+- Basic understanding of Machine Learning concepts and workflows.
+- Familiarity with DevOps practices, tools, and methodologies.
+- Experience with cloud platforms (AWS, GCP, Azure) and containerization (Docker, Kubernetes).
+
+-- 

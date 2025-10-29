@@ -1,0 +1,435 @@
+MODULE 1: Docker Fundamentals (20 Scenarios)
+Learn core Docker concepts — images, containers, client-server model, lifecycle, and essential commands.
+    - Verify Docker installation using hello-world
+        * Check you have Docker running
+            > docker --version
+            > docker info
+        * Pull the official nginx image (optional — docker run will auto-pull)
+            > docker pull nginx:latest
+        * Run nginx, publish port 80→8080, detach, and name the container
+            > docker run -d --name my-nginx -p 8080:80 nginx:latest
+            # docker run → start a new container.
+            # -d → run detached (in the background) so your terminal is free.
+            # --name my-nginx → give the container a friendly name (so you don’t have to use long IDs).
+            # -p 8080:80 → publish container port 80 (nginx default) to host port 8080. This means when you open http://localhost:8080 your browser reaches nginx inside the container.
+            # nginx:latest → the image and tag to use.
+        * Verify the container is running
+            > docker ps
+        * Test with a browser or curl
+            > Browse : http://<ip-address>:8080
+            > CLI: curl -I http://<ip-address>:8080  
+                #verifies HTTP traffic reaches nginx. -I shows headers only (fast check).
+                # Expected: 200 status and default nginx welcome page HTML.
+        * View container logs (what nginx prints)
+            > docker logs <container-id/name>
+        * Exec into the container (run a shell) — inspect files
+            > docker exec -it my-nginx /bin/bash
+            insdie container
+            > ls -la /usr/share/nginx/html   # default web root
+            > cat /etc/nginx/nginx.conf      # nginx configuration
+        * Make the site editable from your host (bind-mount local folder)
+            > docker stop <container-id>
+            > docker rm <container-id>
+            > Create a local folder and an index.html:
+            > mkdir -p ~/nginx-site
+            > echo "<h1>Hello from my local folder</h1>" > ~/nginx-site/index.html
+            > docker run -d --name my-nginx -p 8080:80 -v ~/nginx-site:/usr/share/nginx/html:ro nginx:latest
+                # -v ~/nginx-site:/usr/share/nginx/html:ro mounts your local ~/nginx-site into the container's web root. 
+                # :ro makes it read-only inside the container (safer).
+        * Update content quickly (from host)
+            > echo "<p>Updated at $(date)</p>" >> ~/nginx-site/index.html
+        * Stop and remove the container (cleanup)
+            > docker stop <container-id>
+            > docker rm <container-id>
+            > docker rmi <image-id>
+- Extra notes — common gotchas 
+    * Port conflict: If 8080 is already used, change host port (e.g., -p 9090:80).
+    * Firewall/remote host: If the container runs on a remote VM, make sure the VM firewall allows the host port (8080) and that Docker is bound to 0.0.0.0. Use the host IP to connect.
+    * Container removed automatically: if you used --rm before, container disappears after stop — you won’t see it in docker ps -a.
+    * No shell in image: minimal images may not include bash. Use /bin/sh or inspect image docs.
+    * Permissions on bind mount: if files are owned by root on host, container may not read them depending on permissions — adjust chown or use proper mount options.
+        
+    - Run your first container (nginx)
+    - Check running containers (docker ps)
+    - Stop, start, restart containers
+    - Run container in detached mode (-d)
+    - Run interactive container (-it)
+    - Understand images vs containers
+    - View container logs (docker logs)
+    - Execute command inside container (docker exec)
+    - Inspect container details (docker inspect)
+    - Understand Docker client-server architecture
+    - Check Docker system info (docker info)
+    - Run multiple containers simultaneously
+    - Remove containers and images
+    - Understand docker system prune
+    - Manage container names and IDs
+    - Use docker stats to view usage
+    - Understand container lifecycle fully
+    - Run multiple instances of same image
+Real scenario: verify Docker setup on multiple environments
+
+🧱 MODULE 2: Building Docker Images (20 Scenarios)
+Learn to create your own custom images using Dockerfiles.
+    - Create your first Dockerfile
+    - Add application files with COPY
+    - Set working directory (WORKDIR)
+    - Use RUN instruction
+    - Define startup commands with CMD
+    - Compare ENTRYPOINT vs CMD
+    - Use ENV for environment variables
+    - Expose container ports (EXPOSE)
+    - Add metadata using LABEL
+    - Use build arguments (ARG)
+    - Use .dockerignore for faster builds
+    - Chain multiple RUN commands efficiently
+    - Add non-root user to image
+    - Debug Dockerfile build errors
+    - Build versioned images (v1, v2, etc.)
+    - Remove intermediate images after build
+    - View image history (docker history)
+    - Inspect image layers (docker inspect)
+    - Optimize image build size
+    - Real scenario: build a Python/NodeJS app image
+
+☁️ MODULE 3: Docker Registries (30 Scenarios)
+Manage images using local registry, Docker Hub, AWS ECR, and Azure ACR.
+
+🧭 Docker Hub (10)
+    - Login to Docker Hub
+    - Tag and push image
+    - Pull image on another system
+    - Manage private repositories
+    - Remove and re-tag images
+    - Automate Docker Hub push with script
+    - Use access tokens
+    - Enable content trust
+    - Configure Docker Hub webhooks
+    - CI/CD push using Jenkins to Docker Hub
+
+☁️ AWS ECR (10)
+    - Create ECR repo via console
+    - Create ECR repo via CLI
+    - Authenticate Docker to ECR
+    - Tag local image for ECR
+    - Push image to ECR
+    - Pull image from ECR to EC2
+    - Manage IAM permissions for ECR
+    - Setup lifecycle policy for cleanup
+    - Delete unused images
+    - Push image to ECR from Jenkins
+
+☁️ Azure ACR (10)
+    - Create ACR via Azure Portal
+    - Create ACR via CLI
+    - Authenticate Docker to ACR
+    - Tag image for ACR
+    - Push image to ACR
+
+Pull image from ACR on another VM
+
+Manage access roles (RBAC)
+
+Enable geo-replication in ACR
+
+Setup cleanup policy
+
+Push to ACR using Azure DevOps
+
+⚙️ MODULE 4: Containers in Practice (20 Scenarios)
+
+Work with environment variables, volumes, ports, and data management.
+
+Pass environment variable to container
+
+Use --env-file to load multiple vars
+
+Map container ports to host ports (-p)
+
+Use bind mounts for persistent data
+
+Use named volumes for storage
+
+Difference between bind mount & volume
+
+Share data between containers
+
+Inspect volume details
+
+Backup container data
+
+Automate volume backups using cron
+
+Use --restart policy (always/on-failure)
+
+Configure container resource limits (CPU/RAM)
+
+View resource stats (docker stats)
+
+Set container hostname
+
+Use container labels
+
+Check container network info (docker network inspect)
+
+Create temp containers (--rm)
+
+Remove exited containers automatically
+
+Export/import containers (docker export/import)
+
+Real scenario: backup/restore app container data
+
+🧠 MODULE 5: Docker Networking Deep Dive (20 Scenarios)
+
+Learn how containers communicate internally and externally.
+
+Understand Docker default bridge network
+
+Create a custom bridge network
+
+Connect multiple containers to same network
+
+Connect container to multiple networks
+
+Use --network flag
+
+Use host network mode
+
+Use none network mode (isolation)
+
+Inspect Docker networks
+
+Test connectivity between containers (ping)
+
+Use DNS inside containers
+
+Configure static IP for containers
+
+Troubleshoot network issues
+
+Use macvlan network
+
+Communicate with external systems
+
+Configure container-to-container links (legacy)
+
+Understand overlay network (Swarm)
+
+Use network alias
+
+Create user-defined subnet
+
+Add and remove containers dynamically
+
+Real scenario: isolate environments using custom networks
+
+🧰 MODULE 6: Docker Compose (20 Scenarios)
+
+Simplify multi-container deployments.
+
+Install Docker Compose
+
+Write first docker-compose.yml
+
+Add multiple services (nginx + redis)
+
+Use environment variables
+
+Add volumes in compose
+
+Use depends_on for dependency order
+
+Scale containers using docker-compose up --scale
+
+Add healthchecks
+
+Use external network in compose
+
+Use external volume in compose
+
+Override compose files for environments
+
+Use .env file with compose
+
+Check container logs with compose
+
+Restart and rebuild services
+
+Stop and remove stack cleanly
+
+Auto-restart failed services
+
+Monitor compose app status
+
+Connect multiple compose projects
+
+Compose file version 3 deep dive
+
+Real scenario: multi-service web app with DB
+
+🔐 MODULE 7: Docker Security (20 Scenarios)
+
+Secure containers, images, and runtime environment.
+
+Use non-root user in container
+
+Manage permissions on Docker socket
+
+Enable TLS between client and daemon
+
+Scan images for vulnerabilities (docker scan)
+
+Sign and verify images
+
+Restrict container capabilities (--cap-drop)
+
+Use seccomp profiles
+
+Control network access
+
+Encrypt Docker logs
+
+Manage secrets with Docker secrets
+
+Restrict Docker API exposure
+
+Audit Docker daemon activity
+
+Use AppArmor and SELinux with Docker
+
+Manage Docker groups securely
+
+Set read-only root filesystem
+
+Use tmpfs mounts
+
+Manage user namespaces
+
+Monitor security events
+
+Follow CIS Docker Benchmark
+
+Real scenario: secure Docker host for production
+
+🧩 MODULE 8: Advanced Image Optimization (20 Scenarios)
+
+Make builds faster, smaller, and efficient.
+
+Use multi-stage builds
+
+Cache dependencies effectively
+
+Use builder pattern
+
+Compare image size optimization techniques
+
+Build minimal images with scratch
+
+Use distroless images
+
+Use Alpine base image
+
+Remove temporary files after builds
+
+Combine multiple RUN commands
+
+Compress image layers
+
+Benchmark build time
+
+Analyze layers with Dive (tool)
+
+Store build cache remotely
+
+Use BuildKit for advanced builds
+
+Push build cache to registry
+
+Parallel builds using --parallel
+
+Customize build context
+
+Use build secrets
+
+Compare Dockerfile best practices
+
+Real scenario: optimize large application image
+
+🧩 MODULE 9: Docker Swarm & Orchestration (20 Scenarios)
+
+Built-in Docker clustering for multi-node management.
+
+Initialize Swarm mode
+
+Add worker nodes
+
+Deploy a service
+
+Scale service replicas
+
+Update service image
+
+Rollback updates
+
+Use secrets in Swarm
+
+Use configs in Swarm
+
+Attach overlay network
+
+Use constraints for scheduling
+
+Drain a node
+
+Monitor Swarm nodes
+
+Inspect service tasks
+
+Rolling updates in Swarm
+
+Deploy stack with docker stack deploy
+
+Use placement preferences
+
+Limit resources per service
+
+Remove service safely
+
+Troubleshoot Swarm cluster
+
+Real scenario: deploy web cluster using Swarm
+
+🧰 MODULE 10: CI/CD, Monitoring & Troubleshooting (10 Scenarios)
+
+Connect Docker with DevOps tools and production workflows.
+
+Build Docker image in Jenkins
+
+Push image to ECR from Jenkins
+
+Deploy app using image tag versioning
+
+Monitor containers with docker stats and logs
+
+Integrate Docker with Prometheus
+
+Use Grafana dashboards for containers
+
+Debug stuck containers
+
+Resolve container crash issues
+
+Troubleshoot image pull failures
+
+Real project: full CI/CD pipeline (build → push → run)
+
+✅ By completing all 200 Docker scenarios, you will:
+
+Be fully production-ready in Docker.
+
+Understand ECR + ACR workflows end-to-end.
+
+Build, secure, optimize, deploy, and troubleshoot any container.
+
+Be ready to lead DevOps projects or clear senior interviews confidently.
