@@ -1,0 +1,15 @@
+NEXUS & JFROG
+
+- it is artifactory tool.
+- Ready to deploy artifactory
+
+
+--> Installation Process
+- 4GB RAM, 2 CPU's
+
+--> Why JFROG?
+- it will support more providers like Python, Maven, Docker, Gradel, Go, NodeJS, NPM
+
+--> Install JFROG Artifactory tool
+- sudo systemctl status artifactory.service
+- sudo systemctl start artifactory.service

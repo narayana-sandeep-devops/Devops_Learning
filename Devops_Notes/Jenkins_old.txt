@@ -1,0 +1,91 @@
+JENKINS:CI/CD Tool
+
+- Jenkins is only for CI.
+
+CI: CONTINOUS INTEGRATION: CONTINOUS BUILD + CONTINOUS TEST (OLD CODE WITH NEW CODE)
+CD : 
+- CONTINOUS DELIVERY : Deploying the application to Production in Manual.
+- CONTINOUS DEPLOYMENT: Deploying the application to production in autmatic.
+
+--> PIPELINE: 
+- CODE --> Compile --> TEST --> Artifact --> Deploy 
+- Step by Step Execution of a process
+- Series of events interlinked with eachother. 
+
+--> JENKINS
+- It s a free and open-source tool.
+- Jenkins written on java.
+- It is platform independent.
+- we have community support.
+- It can automate Entire SDLC.
+- It is owned by SUN micro Systems as Hudson.
+- Hudson is paid version.
+- Later Oracle brough hudson and make it free.
+- later hudson was renamed as Jenkins
+- Inventor: Kohsuke Kawaguchi.
+- Port Number : 8080
+- Default Path: /Var/lib/Jenkins
+
+--> Alternatives:
+- BAMBOO, GO CI, CIRCLE CI, TARVIS, SEMAPHORE, BUDDY BUILD MASTER, GITLAB, HARNESS, ARGOCD..
+
+CLOUD - AWS CODE PIPELINE, AZURe PIPELINE
+
+
+--> First PIPELINE
+- workspace /var/lib/jenkins/workspace/firstpipeline
+
+--> Grrovy Script:
+- declarative script start with "PIPELINE" word.
+- Groovy script start with "node" word
+- compared to declarative Groovy script faster in Execution
+
+--> Master - Slave Architecture
+    - Jenkins follow the master slave architecture.
+    - Master Node: Work like a container
+    - Worker Node: Slave/Worker node will work as a Execution Node
+    - Single Master Node can have Multiple Worker node
+    - Master Controls the Load Distributeion on Slave Nodes.
+        - Jenkins installation is not required on slave node. only java installation is enough.
+        - we attach windwos/linux/mac os slave node to any os master node.
+    - Master Node:-
+        - Schedule Build job
+        - Dispatch Build Execution to Slave Node
+        - Monitor Slave and Record the build result
+    - Slave Node:
+        - Execute Build dispatched by Master
+
+--> Jenkins User Management:
+- we can control access for pipelines and other options.
+- we can give read/write access by using user management.
+- Role based authentication plugin needs to install to use thie features.
+- after installing plugin, need to enable "Role-based Strategy" nder security -> Authorization
+- 
+
+--> Jenkins Topics:
+- Jenkins Introduction
+- Free Style job
+- Pipeline job
+- Declarative
+- Groovy
+- Script fro SCM
+- Jenkins Triggers
+- Jenkins user management
+- Pipeline with Terraform/Docker/kubernetes/Sonar/Maven/JFROG/Lambda, EC2, Ansible, Trivy 
+- Jenkins Master/Slave
+- Jenkins Backup
+- 
+
+
+-- ArgoCD is the deployment tool for kubernetes.
+
+
+--> Jenkins with Maven
+- 
+--> Jenkins Backup
+- 
+
+
+--> Jenkins version upgradation
+
+--> Master & Slave

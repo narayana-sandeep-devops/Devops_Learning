@@ -1,0 +1,9 @@
+--> Configuration Tools
+
+-- Ansible
+    - its a open source tool
+    - it works on python program in background
+    - inventory file: here we can add all
+-- Chef
+-- Puppet
+
