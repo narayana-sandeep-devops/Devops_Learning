@@ -1,0 +1,52 @@
+Linux For Devops
+
+
+- Linux is operating system
+- Advantages of Linux:
+    - Open Source
+    - High Security
+    - Strong Kernal system
+    - Light weight
+    - Fast Response
+    - Poratability
+    - multitasking
+    - Automation
+
+  - Founder: Linus Torvalds
+  - Kernel:
+    - Kernal is a heart of the OS
+    - Kernal do hardware management
+    - Kernal is interface between application program and hardware
+  - Shell:
+    - interface between user and Kernal
+    - command (yum install httpd -y) -- shell -- kernal -- hardware
+    - what ever commands we are going to run it will give to shell and shell redirecting into kernal
+     and redirectes to hardware.
+  - utilities:
+    - Pre installed libraries and binaries are stored here
+
+- File system
+
+| Directory    | What It Contains          | DevOps Use                               |
+| ------------ | ------------------------- | ---------------------------------------- |
+| **/**        | Root directory            | Starting point of everything             |
+| **/home**    | Normal user data          | Store project files, configs             |
+| **/root**    | Root user home            | Admin operations                         |
+| **/etc**     | **Configuration files**   | Most DevOps configs (nginx, ssh, docker) |
+| **/var**     | Logs, cache, runtime data | **DevOps log troubleshooting**           |
+| **/usr/bin** | Installed commands        | Tools location                           |
+| **/bin**     | Basic commands            | ls, cp, mv, rm, cat                      |
+| **/sbin**    | Admin commands            | systemctl, service                       |
+| **/tmp**     | Temporary files           | Short-lived operations                   |
+| **/opt**     | Optional applications     | Jenkins, java installs                   |
+
+- commands
+   - sudo su - to switch root user
+   - ls - list files
+   - su -   --> to switch to user 
+   - su - <username>
+   - cd~  -> this is a short cut command to go to user home page
+   - touch file1   -> it creates a file1
+   - mkdir folder1  -> it creates a folder1
+   - rm --- to remove file/folder/directory
+   - s

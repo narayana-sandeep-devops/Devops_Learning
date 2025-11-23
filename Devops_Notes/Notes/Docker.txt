@@ -56,6 +56,8 @@ we can bypass the sudo commands by creating a new group with the name docker ad 
     * CMD -- Executable command
     * ENTRYPOINT  -- Same like CMD executable command in container but here we cant change commands
                         while docker run time.
+    * USER --
+    * VOLUME --
 
 --> Image building
     - docker build -t test .

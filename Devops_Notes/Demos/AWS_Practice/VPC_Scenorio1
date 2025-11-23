@@ -1,0 +1,66 @@
+Scenario 1 — Build a secure VPC for a 3-tier web app (public + private subnets across 2 AZs)
+
+Explanation:
+your team must deploy a simple production-ready three-tier application (web → app → DB). The web servers must be publicly reachable, application servers should be private (no inbound from internet), and the database must be in a private subnet accessible only from app servers. Outbound internet access from private subnets must be allowed (for OS updates) but inbound from internet must be blocked. You must also provide a secure way to administer private instances (bastion/jumphost). Build this using a VPC with high availability (2 AZs).
+
+
+Goal (what to deliver)
+- A VPC with:
+- CIDR: 10.0.0.0/16
+- Two AZs (AZ-a and AZ-b) with:
+- Public subnet in each AZ (for load balancer / web EC2s): 10.0.1.0/24, 10.0.2.0/24
+- Private app subnet in each AZ: 10.0.11.0/24, 10.0.12.0/24
+- Private DB subnet in each AZ: 10.0.21.0/24, 10.0.22.0/24
+- Internet Gateway (IGW) attached and a public route table for public subnets
+- NAT Gateway (one per AZ or a single in one AZ with fallback plan) for private outbound
+- Security Groups: web-sg (allow HTTP/HTTPS from internet), app-sg (allow from web-sg), db-sg (allow from app-sg only)
+- Bastion host in public subnet with restricted SSH (your IP)
+- Network ACLs optional hardened rules
+- Verifications and cleanup steps
+
+
+SOLUTION:-------------->
+
+Explanation (why these components and how they fit)
+
+A VPC provides network isolation. Public subnets contain instances that need inbound internet access (web servers, bastion). Private subnets hold application and database tiers that should not be reachable directly from the internet. An Internet Gateway enables internet routing for public subnets; NAT Gateways (in private-to-internet direction) let private instances initiate outbound connections while keeping them unreachable from outside. Security Groups are stateful instance-level firewalls and are used to allow minimal required traffic between tiers (web→app, app→db). NACLs act as an additional (stateless) perimeter—useful for broader subnet-level controls or to block known bad IP ranges. A bastion/jumphost is used to securely SSH into private instances (via SSH agent forwarding or proxy), instead of opening SSH on private instances.
+
+
+Step-1  --> Create VPC
+Console: VPC → Create VPC → IPv4 CIDR 10.0.0.0/16 → name prod-vpc
+CLI: 
+aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=prod-vpc}]'
+Note: the returned VpcId (we’ll refer to it as $VPC_ID).
+
+Step-2 : --> Create public and private subnets (2 AZs)
+Console:  VPC → Subnets → Create subnet (select VPC, AZ, CIDR, name).
+CLI: 
+# Public subnets
+aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.1.0/24 --availability-zone ap-south-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=pub-a}]'
+aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.2.0/24 --availability-zone ap-south-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=pub-b}]'
+
+# Private app subnets
+aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.11.0/24 --availability-zone ap-south-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=app-a}]'
+aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.12.0/24 --availability-zone ap-south-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=app-b}]'
+
+# Private DB subnets
+aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.21.0/24 --availability-zone ap-south-1a --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=db-a}]'
+aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.22.0/24 --availability-zone ap-south-1b --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=db-b}]'
+
+Make public subnets auto-assign public IPs (
+    
+Console: Subnets → Modify auto-assign IP settings → enable).
+
+CLI:
+aws ec2 modify-subnet-attribute --subnet-id $PUB_A_ID --map-public-ip-on-launch
+aws ec2 modify-subnet-attribute --subnet-id $PUB_B_ID --map-public-ip-on-launch
+
+Step-3: ---> Create and attach an Internet Gateway
+
+Console: VPC → Internet Gateways → Create → Attach to VPC.
+CLI:
+IGW_ID=$(aws ec2 create-internet-gateway --query 'InternetGateway.InternetGatewayId' --output text)
+aws ec2 attach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID
+
+
+

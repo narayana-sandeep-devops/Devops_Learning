@@ -1,0 +1,8 @@
+#NODEJS PROJECT
+#first we need to install nodejs on ec2 to run nodejs PROJECT
+#NVM - Node Version Manager, manage the version system in nodejs
+#we are going to install nodejs whenever install nodejs will get npm
+#here npm is node program manager it will install required dependencies from package.json
+#lock.packagejson -- this is to lock the version for dependencies to the project
+#npm install --will download all dependencies
+#npm start
