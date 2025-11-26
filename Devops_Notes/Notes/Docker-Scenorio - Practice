@@ -1,0 +1,326 @@
+===========>     DOCKER MASTERCLASS — 200 REAL-TIME SCENARIOS   <==============
+
+--> MODULE 1: Docker Fundamentals (20 Scenarios)
+-- Learn core Docker concepts — images, containers, client-server model, lifecycle, 
+   and essential commands.
+
+1. Verify Docker installation using hello-world
+2. Run your first container (nginx)
+3. Check running containers (docker ps)
+4. Stop, start, restart containers
+5. Run container in detached mode (-d)
+6. Run interactive container (-it)
+7. Understand images vs containers
+8. View container logs (docker logs)
+9. Execute command inside container (docker exec)
+10. Inspect container details (docker inspect)
+11. Understand Docker client-server architecture
+12. Check Docker system info (docker info)
+13. Run multiple containers simultaneously
+14. Remove containers and images
+15. Understand docker system prune
+16. Manage container names and IDs
+17. Use docker stats to view usage
+18. Understand container lifecycle fully
+19. Run multiple instances of same image
+20. Real scenario: verify Docker setup on multiple environments
+
+--> MODULE 2: Building Docker Images (20 Scenarios)
+-- Learn to create your own custom images using Dockerfiles.
+
+21. Create your first Dockerfile
+22. Add application files with COPY
+23. Set working directory (WORKDIR)
+24. Use RUN instruction
+25. Define startup commands with CMD
+26. Compare ENTRYPOINT vs CMD
+27. Use ENV for environment variables
+28. Expose container ports (EXPOSE)
+29. Add metadata using LABEL
+30. Use build arguments (ARG)
+31. Use .dockerignore for faster builds
+32. Chain multiple RUN commands efficiently
+33. Add non-root user to image
+34. Debug Dockerfile build errors
+35. Build versioned images (v1, v2, etc.)
+36. Remove intermediate images after build
+37. View image history (docker history)
+38. Inspect image layers (docker inspect)
+39. Optimize image build size
+40. Real scenario: build a Python/NodeJS app image
+
+==> MODULE 3: Docker Registries (30 Scenarios)
+-- Manage images using local registry, Docker Hub, AWS ECR, and Azure ACR.
+
+41. Docker Hub (10)
+42. Login to Docker Hub
+43. Tag and push image
+44. Pull image on another system
+45. Manage private repositories
+46. Remove and re-tag images
+47. Automate Docker Hub push with script
+48. Use access tokens
+49. Enable content trust
+50. Configure Docker Hub webhooks
+51. CI/CD push using Jenkins to Docker Hub
+
+☁️ AWS ECR (10)
+
+52. Create ECR repo via console
+53. Create ECR repo via CLI
+54. Authenticate Docker to ECR
+55. Tag local image for ECR
+56. Push image to ECR
+57. Pull image from ECR to EC2
+58. Manage IAM permissions for ECR
+59. Setup lifecycle policy for cleanup
+60. Delete unused images
+61. Push image to ECR from Jenkins
+
+☁️ Azure ACR (10)
+
+62. Create ACR via Azure Portal
+63. Create ACR via CLI
+64. Authenticate Docker to ACR
+65. Tag image for ACR
+66. Push image to ACR
+67. Pull image from ACR on another VM
+68. Manage access roles (RBAC)
+69. Enable geo-replication in ACR
+70. Setup cleanup policy
+71. Push to ACR using Azure DevOps
+
+==> MODULE 4: Containers in Practice (20 Scenarios)
+-- Work with environment variables, volumes, ports, and data management.
+72. Pass environment variable to container
+73. Use --env-file to load multiple vars
+74. Map container ports to host ports (-p)
+75. Use bind mounts for persistent data
+76. Use named volumes for storage
+77. Difference between bind mount & volume
+78. Share data between containers
+80. Inspect volume details
+81. Backup container data
+82. Automate volume backups using cron
+83. Use --restart policy (always/on-failure)
+84. Configure container resource limits (CPU/RAM)
+85. View resource stats (docker stats)
+86. Set container hostname
+87. Use container labels
+88. Check container network info (docker network inspect)
+89. Create temp containers (--rm)
+90. Remove exited containers automatically
+91. Export/import containers (docker export/import)
+92. Real scenario: backup/restore app container data
+
+==> MODULE 5: Docker Networking Deep Dive (20 Scenarios)
+-- Learn how containers communicate internally and externally.
+
+92. Understand Docker default bridge network
+93. Create a custom bridge network
+94. Connect multiple containers to same network
+95. Connect container to multiple networks
+96. Use --network flag
+97. Use host network mode
+98. Use none network mode (isolation)
+99. Inspect Docker networks
+100. Test connectivity between containers (ping)
+101. Use DNS inside containers
+102. Configure static IP for containers
+103. Troubleshoot network issues
+104. Use macvlan network
+105. Communicate with external systems
+106. Configure container-to-container links (legacy)
+107. Understand overlay network (Swarm)
+108. Use network alias
+109. Create user-defined subnet
+110. Add and remove containers dynamically
+
+Real scenario: isolate environments using custom networks
+
+==> MODULE 6: Docker Compose (20 Scenarios)
+
+111. Simplify multi-container deployments.
+112. Install Docker Compose
+113. Write first docker-compose.yml
+114. Add multiple services (nginx + redis)
+115. Use environment variables
+116. Add volumes in compose
+117. Use depends_on for dependency order
+118. Scale containers using docker-compose up --scale
+119. Add healthchecks
+120. Use external network in compose
+121. Use external volume in compose
+121. Override compose files for environments
+122. Use .env file with compose
+123. Check container logs with compose
+124. Restart and rebuild services
+125. Stop and remove stack cleanly
+126. Auto-restart failed services
+127. Monitor compose app status
+128. Connect multiple compose projects
+129. Compose file version 3 deep dive
+
+Real scenario: multi-service web app with DB
+
+==> MODULE 7: Docker Security (20 Scenarios)
+
+130. Secure containers, images, and runtime environment.
+131. Use non-root user in container
+132. Manage permissions on Docker socket
+133. Enable TLS between client and daemon
+134. Scan images for vulnerabilities (docker scan)
+
+Sign and verify images
+
+Restrict container capabilities (--cap-drop)
+
+Use seccomp profiles
+
+Control network access
+
+Encrypt Docker logs
+
+Manage secrets with Docker secrets
+
+Restrict Docker API exposure
+
+Audit Docker daemon activity
+
+Use AppArmor and SELinux with Docker
+
+Manage Docker groups securely
+
+Set read-only root filesystem
+
+Use tmpfs mounts
+
+Manage user namespaces
+
+Monitor security events
+
+Follow CIS Docker Benchmark
+
+Real scenario: secure Docker host for production
+
+🧩 MODULE 8: Advanced Image Optimization (20 Scenarios)
+
+Make builds faster, smaller, and efficient.
+
+Use multi-stage builds
+
+Cache dependencies effectively
+
+Use builder pattern
+
+Compare image size optimization techniques
+
+Build minimal images with scratch
+
+Use distroless images
+
+Use Alpine base image
+
+Remove temporary files after builds
+
+Combine multiple RUN commands
+
+Compress image layers
+
+Benchmark build time
+
+Analyze layers with Dive (tool)
+
+Store build cache remotely
+
+Use BuildKit for advanced builds
+
+Push build cache to registry
+
+Parallel builds using --parallel
+
+Customize build context
+
+Use build secrets
+
+Compare Dockerfile best practices
+
+Real scenario: optimize large application image
+
+🧩 MODULE 9: Docker Swarm & Orchestration (20 Scenarios)
+
+Built-in Docker clustering for multi-node management.
+
+Initialize Swarm mode
+
+Add worker nodes
+
+Deploy a service
+
+Scale service replicas
+
+Update service image
+
+Rollback updates
+
+Use secrets in Swarm
+
+Use configs in Swarm
+
+Attach overlay network
+
+Use constraints for scheduling
+
+Drain a node
+
+Monitor Swarm nodes
+
+Inspect service tasks
+
+Rolling updates in Swarm
+
+Deploy stack with docker stack deploy
+
+Use placement preferences
+
+Limit resources per service
+
+Remove service safely
+
+Troubleshoot Swarm cluster
+
+Real scenario: deploy web cluster using Swarm
+
+🧰 MODULE 10: CI/CD, Monitoring & Troubleshooting (10 Scenarios)
+
+Connect Docker with DevOps tools and production workflows.
+
+Build Docker image in Jenkins
+
+Push image to ECR from Jenkins
+
+Deploy app using image tag versioning
+
+Monitor containers with docker stats and logs
+
+Integrate Docker with Prometheus
+
+Use Grafana dashboards for containers
+
+Debug stuck containers
+
+Resolve container crash issues
+
+Troubleshoot image pull failures
+
+Real project: full CI/CD pipeline (build → push → run)
+
+✅ By completing all 200 Docker scenarios, you will:
+
+Be fully production-ready in Docker.
+
+Understand ECR + ACR workflows end-to-end.
+
+Build, secure, optimize, deploy, and troubleshoot any container.
+
+Be ready to lead DevOps projects or clear senior interviews confidently.

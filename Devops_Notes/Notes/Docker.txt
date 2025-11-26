@@ -46,18 +46,18 @@ we can bypass the sudo commands by creating a new group with the name docker ad 
     - by using docker file we can pass the Instructions
     - 
 
-    * FROM -- To Pull image from docker hub (UBUNTU/centos)
-    * RUN -- apt-get update -y  (locally executable commands)
-    * RUN -- mkdir test
-    * WORKDIR  -- works like CD command
-    * COPY  -- Copy th files from local to docker
-    * ADD -- works like copy instructions, we can add here URL's also , we can call from remote locations
-    * EXPOSE -- Default port number of application
-    * CMD -- Executable command
-    * ENTRYPOINT  -- Same like CMD executable command in container but here we cant change commands
-                        while docker run time.
-    * USER --
-    * VOLUME --
+    * FROM          -- To Pull image from docker hub (UBUNTU/centos)
+    * RUN           -- apt-get update -y  (locally executable commands)
+    * RUN           -- mkdir test
+    * WORKDIR       -- works like CD command
+    * COPY          -- Copy the files from local to docker
+    * ADD           -- works like copy instructions, we can add here URL's also , we can call from remote locations
+    * EXPOSE        -- Default port number of application
+    * CMD           -- Executable command in container
+    * ENTRYPOINT    -- Same like CMD executable command in container but here we can't change commands
+                    while docker run time.
+    * USER          --
+    * VOLUME        --
 
 --> Image building
     - docker build -t test .
@@ -67,6 +67,15 @@ we can bypass the sudo commands by creating a new group with the name docker ad 
 
 
 =================================>
+
+-- important points
+- if a container is created from image and it is not possible to delete the container. even if container
+is in stopped state as well
+- detach vs interactive
+    - You use interactive mode for testing, debugging, or manually inspecting containers.
+    - detach mode (-d) Runs in background
+    - interactive mode (-it) allows to access shell in container for typing commands.
+- 
 
      
 
