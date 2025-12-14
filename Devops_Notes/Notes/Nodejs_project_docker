@@ -1,0 +1,54 @@
+
+Video 62(b) 
+-- First we need to install nodejs on ec2 to run nodejs project
+
+- NVM -- Node version manager manage the version system in nodejs
+    we are going to install nodejs whenever install nodejs will get npm
+- here npm is node program manager it will install required dependencies from package.json
+
+- lock.package.json -- this is to lock the version for dependencies to the project
+
+- npm install -- will download all dependencies
+
+- npm start
+
+
+-->
+
+
+- in docker ec2-
+    - apt-get install git
+    - git --version
+    - git clone https://github.com/CloudTechDevOps/swiggy-nodejs-devops-project.git
+    - cd <project_folder>
+    - Inside the project folder
+        - vi Dockerfile
+            * FROM node:16
+            * WORKDIR /app
+            * COPY package*json ./
+            * RUN npm install
+            * COPY . .
+            * RUN npm un build
+            * EXPOSE 3000
+            * ENTRYPOINT 
+        - incase multiple docker files available then we need to use
+            * docker build -f <Dockerfilename> -t <image_name> .
+            * docker build -f Dockefile1 -t test .
+        - docker build -t nodejs .
+--> 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+- can we create multiple dockerfiles in onefolder with different names.
+>> Answer is YES. but in realtime we will not use in this scenorio.
+

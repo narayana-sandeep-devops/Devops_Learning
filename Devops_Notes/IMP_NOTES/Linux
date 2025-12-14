@@ -1,0 +1,130 @@
+100 MUST-REMEMBER LINUX POINTS FOR DEVOPS ENGINEERS
+
+(Each point: 10–20 words, simple English)
+
+🔹 Linux Basics
+
+1. Linux is preferred in production because it is stable, secure, lightweight, and open-source.
+2. Most DevOps tools like Docker, Kubernetes, Jenkins run best on Linux servers.
+3. Linux servers are usually accessed remotely using SSH, not graphical interface.
+4. Everything in Linux is treated as a file, including logs, devices, and configurations.
+5. Linux uses a single root directory instead of multiple drives like Windows.
+6. Command line usage is mandatory for DevOps engineers working on Linux servers.
+7. Linux supports multi-user access, making it suitable for enterprise environments.
+8. Linux systems can run continuously for years without rebooting.
+9. DevOps engineers manage servers, not desktops, so Linux knowledge is essential.
+10. Linux allows high automation, which is core to DevOps culture.
+
+🔹 File System Structure
+
+11. Root directory / is the starting point of the entire Linux file system.
+12. /etc stores configuration files required for system and application behavior.
+13. Wrong changes in /etc can crash applications or even the entire server.
+14. /var contains variable data like logs, cache, and runtime files.
+15. /var/log is the first location to check when applications fail.
+16. /home stores personal files and SSH keys of normal users.
+17. /root is the home directory of the root user only.
+18. /opt is used to install third-party applications like Jenkins or SonarQube.
+19. /tmp stores temporary files and is usually cleared after system reboot.
+20. Understanding directory purpose is more important than memorizing paths.
+
+🔹 Navigation & File Operations
+
+21. pwd shows current working directory, helping avoid running commands in wrong locations.
+22. ls lists files, while ls -l shows permissions, owner, and file size.
+23. cd changes directories; incorrect usage may lead to unintended file changes.
+24. mkdir creates directories and is commonly used during application setup.
+25. rm deletes files permanently; Linux has no recycle bin.
+26. rm -rf is dangerous and can delete critical system files instantly.
+27. cp copies files, while mv moves or renames them.
+28. Always double-check file paths before deleting files in production.
+29. Hidden files start with dot and usually store configuration settings.
+30. Backup files before modification to avoid irreversible production issues.
+
+🔹 Permissions & Ownership
+
+31. Linux permissions define who can read, write, or execute files.
+32. Permissions are divided into owner, group, and others.
+33. chmod changes file permissions and controls access security.
+34. chown changes file or directory ownership.
+35. Applications often fail because required permissions are missing.
+36. Executable permission is required to run scripts or binaries.
+37. Giving 777 permission is insecure and discouraged in production environments.
+38. Group permissions help teams share controlled access to files.
+39. Always verify permissions using ls -l before troubleshooting.
+40. Permissions are a primary security mechanism in Linux systems.
+
+🔹 Users & Access
+
+41. Linux allows multiple users to work simultaneously on the same system.
+42. Each user has a unique user ID and home directory.
+43. Root user has full control and must be used cautiously.
+44. sudo allows limited administrative access without full root login.
+45. SSH key authentication is more secure than password-based login.
+46. .ssh/authorized_keys controls which users can access servers.
+47. Password login should be disabled in production servers.
+48. Least privilege principle reduces risk of accidental or malicious damage.
+49. User access must be logged and auditable.
+50. Proper access management is critical for security compliance.
+
+🔹 Processes & Services
+
+51. A process is a running instance of a program.
+52. ps command displays currently running processes.
+53. top shows real-time CPU and memory usage.
+54. kill stops a process using its process ID.
+55. Services are background processes that start automatically.
+56. systemctl is used to manage services in modern Linux systems.
+57. systemctl status helps diagnose service-related issues.
+58. Restarting services without analysis can hide root problems.
+59. Always check logs before restarting any service.
+60. Proper process management ensures high application availability.
+
+🔹 Logs & Troubleshooting
+
+61. Logs are the primary source for diagnosing Linux and application issues.
+62. Application logs explain failures more accurately than error messages.
+63. System logs capture OS-level warnings and errors.
+64. tail -f is used to monitor logs in real time.
+65. Deleting logs without analysis causes loss of critical evidence.
+66. Log files can fill disk space if unmanaged.
+67. Log rotation prevents disk usage issues.
+68. Timestamps in logs help trace issue timelines.
+69. Logs support root cause analysis during incidents.
+70. Skilled DevOps engineers rely heavily on log analysis.
+
+🔹 Networking, Disk & Automation
+
+71. Servers communicate using IP addresses and port numbers.
+72. ip a displays network interfaces and IP addresses.
+73. ping checks basic network connectivity.
+74. ss or netstat shows listening services and ports.
+75. Firewall rules control inbound and outbound traffic.
+76. Disk full issues can crash applications and databases.
+77. df -h shows disk usage in human-readable format.
+78. du helps identify directories consuming high disk space.
+79. free -h shows memory and swap usage.
+80. Monitoring disk and memory prevents unexpected outages.
+81. Linux supports automation through shell scripts.
+82. Automation reduces manual errors and improves consistency.
+83. Scripts must have execute permission to run.
+84. Always test scripts in lower environments before production.
+85. Scripts should include logging for traceability.
+86. DevOps depends heavily on Linux-based automation.
+87. Manual server management does not scale.
+88. Scripts should be repeatable and predictable.
+89. CI/CD pipelines rely on Linux systems.
+90. Linux knowledge directly impacts DevOps efficiency.
+
+🔹 DevOps Mindset
+
+91. inux is the foundation layer for all DevOps tools.
+92. Strong Linux basics reduce dependency on others.
+93. Most production issues require Linux troubleshooting skills.
+94. Interviewers expect Linux fundamentals from every DevOps engineer.
+95. Understanding commands is more important than memorizing them.
+96. Always think before running commands in production.
+97. Linux mistakes can cause downtime and data loss.
+98. Good Linux habits prevent major incidents.
+99. Mastering Linux simplifies learning advanced DevOps tools.
+100. Strong Linux skills differentiate junior and senior DevOps engineers.

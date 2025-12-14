@@ -1,0 +1,237 @@
+AWS CLOUD ENGINEER – 200 REAL-TIME SCENARIO MASTER LIST
+Below is the full list of titles organized by modules:
+
+MODULE 1 — IAM, ACCOUNT SETUP & SECURITY (SCENARIOS 1–10)
+
+1. Secure Account Setup – Create IAM Admin, MFA, CLI
+2. Enforce Least Privilege – Create Developer & ReadOnly Roles
+3. IAM Policies – Block S3 Public Access using SCP & IAM
+4. Create IAM Roles for EC2 with Metadata Access
+5. Create IAM Permission Boundaries for Intern Developers
+6. Rotate IAM Access Keys Securely
+7. Configure IAM Identity Center (AWS SSO) for Organizations
+8. Create Cross-Account IAM Role (Account A → Account B)
+9. AWS Organizations – SCP to Restrict High-Risk Services
+10. Incident Scenario – Compromised IAM Key Investigation
+
+MODULE 2 — VPC / NETWORKING FOUNDATION (SCENARIOS 11–35)
+
+Create a Custom VPC – 3-tier Architecture
+Design Public & Private Subnets with Correct CIDR Blocks
+NAT Gateway vs NAT Instance – Cost Optimized Design
+Create Custom Route Tables – Internet Routing
+Create VPC Endpoints – S3 & DynamoDB Private Access
+VPC Peering – Connect VPC-A & VPC-B
+Transit Gateway – Multi-VPC Architecture
+NACLs vs SGs – Block Specific Traffic
+On-Prem Connectivity – Site-to-Site VPN Setup
+Hybrid Scenario – EC2 Private Traffic to On-prem DB
+AWS Direct Connect Architecture
+Troubleshoot “EC2 Not Accessible” (SG, NACL, Route, IGW)
+NAT Gateway High Cost Issue – Resolving
+DNS Resolution via Amazon Route 53 Resolver
+Inter-Region VPC Peering
+Cross-Account VPC Networking Setup
+Access S3 Privately Using Gateway Endpoint
+Advanced Security – Deny Traffic Using NACLs
+Elastic IP Management
+Centralized VPC Design for Multi-Teams
+Flow Logs Analysis on CloudWatch Insights
+Troubleshoot High Latency Issue in VPC
+Create IPv6-enabled VPC Architecture
+Multi-AZ VPC Architecture for Production
+Multi-Region Network DR Setup
+
+MODULE 3 — EC2 COMPUTE (SCENARIOS 36–60)
+Launch EC2 in Public & Private Subnets
+Create & Attach Security Groups
+EC2 Auto-Recovery Setup
+Create AMIs for Golden Image Pipeline
+EC2 Auto Scaling Group – Launch Template
+Scale-In Protection for Critical EC2
+EC2 Spot Instances – Cost Optimization Scenario
+Purchase Reserved Instances for 1-Year Workload
+EC2 Capacity Reservations
+EC2 Instance Connect – SSH without key file
+Patch EC2 Instances using SSM Patch Manager
+Store Application Logs to S3 using SSM
+EC2 Session Manager (No SSH Required)
+Resize EBS Volumes Online
+Create & Restore EBS Snapshots
+Cross-Region Snapshot Copy
+Instance Profile Issues Troubleshooting
+Fix “EC2 IMDS Disabled” Error
+Move EC2 from One Subnet to Another
+Host Web Application on EC2 with ALB
+Troubleshoot 502/504 Errors on ALB + EC2
+EC2 Detailed Monitoring & Alarms
+Install CloudWatch Agent – Collect Metrics
+Create Bastion Host Architecture
+Harden EC2 Instance for Production
+
+MODULE 4 — LOAD BALANCING & HIGH AVAILABILITY (SCENARIOS 61–75)
+
+Create Application Load Balancer – Multi-Tier App
+ALB Path-Based Routing
+ALB Host-Based Routing
+ALB Restrict Access to IP Range
+ALB + Auto Scaling Full Architecture
+Network Load Balancer for TCP/UDP
+SSL/TLS Certificates using ACM
+HTTPS Redirect Setup
+Cross-Zone Load Balancing Setup
+Target Group Health Check Issues Troubleshooting
+Multi-Region ALB Architecture with Route 53
+Sticky Sessions Implementation
+Blue/Green Deployment using ALB Target Groups
+ALB + WAF Integration
+WebSocket Application Behind ALB
+
+MODULE 5 — S3 & STORAGE (SCENARIOS 76–95)
+
+Create S3 Buckets with Block Public Access
+Secure Static Website Hosting
+Lifecycle Policies – Move data to IA/Glacier
+S3 Cross-Region Replication
+S3 Encryption – SSE-S3 vs SSE-KMS
+S3 Access Logs & CloudTrail Integration
+S3 Bucket Policy Troubleshooting
+S3 Presigned URLs for Private File Access
+Multipart Upload for Large File
+S3 Inventory Reports
+S3 Event Notifications – Lambda Integration
+Cross-Account S3 Data Sharing
+Host Web App in S3 + CloudFront
+S3 Failover Architecture
+S3 Object Lock for Compliance
+S3 Data Transfer Acceleration
+VPC Endpoint for S3 Testing
+Analyze S3 Costs using Cost Explorer
+Server Access Logging Deep Dive
+S3 Versioning Recovery Case
+
+MODULE 6 — RDS / DATABASE (SCENARIOS 96–115)
+
+Create RDS MySQL – Multi-AZ
+Configure RDS Backups & Retention
+Create Read Replicas
+Promote Read Replica to Standalone DB
+Performance Insights for DB Query Analysis
+Migrate On-Prem DB to AWS RDS
+Troubleshoot “EC2 cannot connect to RDS”
+Create RDS Parameter Group
+Encrypt RDS using KMS
+Clone RDS Instance
+RDS Serverless v2 Setup
+Create RDS Proxy for Application
+Slow Query Logging
+RDS Failover Testing
+PITR – Point-in-Time Restore
+Aurora Cluster Setup
+Aurora Global Database
+Multi-Master Aurora
+Troubleshoot RDS Storage Full Issue
+Cost Optimization for RDS
+
+MODULE 7 — ECS, ECR, DOCKER, CONTAINERS (SCENARIOS 116–135)
+
+Push Images to ECR
+Create ECS Cluster – EC2 Launch Type
+Create ECS Cluster – Fargate
+Application Deployment on ECS Service
+Auto Scaling for ECS Tasks
+Blue/Green Deployment ECS + CodeDeploy
+Private ECS Tasks using VPC Endpoints
+ECS + RDS Architecture
+ECS Service Auto Recovery
+Troubleshoot ECS “Cannot pull container”
+IAM Roles for Tasks
+Secrets Manager with ECS
+Load Balancing with ALB + ECS
+Store Logs in CloudWatch Logs
+Multi-Container Task Definition
+Lifecycle of ECS Deployment
+Cost Optimization for ECS Fargate
+ECR Image Scan & Security
+ECS Capacity Providers
+High Availability ECS Architecture
+
+MODULE 8 — LAMBDA & SERVERLESS (SCENARIOS 136–150)
+
+Create Lambda Function with IAM Role
+S3 Event Trigger + Lambda
+API Gateway + Lambda REST API
+Parameter Store + Lambda
+Secrets Manager + Lambda
+DynamoDB Stream + Lambda
+Schedule Lambda using EventBridge
+VPC Enabled Lambda (Private ENI)
+Lambda Timeouts Troubleshooting
+Lambda Layers for Reusable Code
+Lambda Versioning & Aliases
+Serverless Image Processing Pipeline
+Lambda Concurrency Issues
+Logging & Monitoring Lambda
+Distributed Tracing with X-Ray
+
+MODULE 9 — CLOUDWATCH, MONITORING & LOGGING (SCENARIOS 151–165)
+
+CloudWatch Log Groups & Retention
+Create Alarms for EC2 CPU
+Alarm Action → Auto Scaling
+Create Dashboard for Production
+Log Insights – Query Debugging
+VPC Flow Logs Analysis
+Application Logs Aggregation
+CloudWatch Cross-Account Dashboard
+Health Dashboard for All Services
+CloudTrail Setup Best Practices
+Detect Unauthorized Console Logins
+S3 Data Exfiltration Detection
+Alarm for RDS Performance Spike
+Alarm for NAT Gateway High Cost
+Security Hub + GuardDuty Setup
+
+MODULE 10 — CODEPIPELINE / DEVOPS (SCENARIOS 166–180)
+
+Create CodeCommit Repo
+CodeBuild CI Pipeline
+CodePipeline End-to-End Deployment
+Blue/Green ECS Deployment
+EC2 Deployment via CodeDeploy
+Infrastructure Deployment using CloudFormation
+CI/CD for Lambda
+Canary Deployment
+GitHub → CodePipeline Integration
+Rollback Strategies
+Buildspec.yml Troubleshooting
+Cross-Account Deployment
+Store Artifacts in S3
+Multi-Branch Pipeline
+DevOps Pipeline DR Strategy
+
+MODULE 11 — ROUTE 53, CDN, DNS, GLOBAL SETUP (SCENARIOS 181–190)
+
+Domain Registration + Hosted Zone Setup
+Create A, CNAME, MX, TXT Records
+DNS Failover Routing
+Weighted Routing for Testing
+Latency Based Routing
+Geo-Location Routing
+CloudFront + S3 Static Website
+Secure CloudFront using OAC
+Global Accelerator for Multi-Region
+Route 53 Resolver Inbound/Outbound
+
+MODULE 12 — ADVANCED SECURITY & COST OPTIMIZATION (SCENARIOS 191–200)
+
+KMS Key Setup & Encryption
+IAM Access Analyzer
+WAF Setup for ALB
+Shield Advanced for DDoS
+Detect Public EC2 Using Config
+Config Rules Custom Enforcement
+Budgets & Alerts Setup
+Cost Explorer Deep Optimization
+Savings Plans vs Reserved Instances
+Final Multi-Region DR Architecture (Capstone Scenario)

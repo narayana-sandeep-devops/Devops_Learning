@@ -1,0 +1,86 @@
+--> Inspect / Troubleshoot Containers
+
+-- Imagine you’re on-call as a DevOps Engineer 🚨.
+Your container is running fine, but the developer says:
+
+==> “My app stopped responding!”
+
+You need to quickly find why — check:
+    - How the container was started
+    - Which ports are mapped
+    - What environment variables are inside
+    - Whether the process is running
+    - How much CPU and memory it’s using
+
+That’s exactly what you’ll learn here.
+
+----------------------------------------------------------------
+
+- To check the container logs
+docker logs inspect-nginx
+
+- To check the live logs
+
+docker logs -f inspect-nginx
+
+- Check Running Processes
+docker top <container-name/id>
+
+------------------------------------------------
+- Monitor Resource Usage
+docker stats
+
+
+CONTAINER ID   NAME            CPU %   MEM USAGE / LIMIT   NET I/O     BLOCK I/O
+abc12345efgh   inspect-nginx   0.00%   5.0MiB / 3.8GiB      1.5kB / 0B  8.2kB / 0B
+
+Explanation:
+
+CPU% → how much processor it’s using
+MEM USAGE → RAM usage
+NET I/O → network traffic (bytes sent/received)
+BLOCK I/O → disk usage
+Use Ctrl + C to exit monitoring.
+
+---------------------------------
+=====> Combine for Real-Time Troubleshooting
+
+If a container is slow or unresponsive:
+
+- Check logs → docker logs -f <name>
+- Check resources → docker stats
+- Check processes → docker top
+- Check config → docker inspect
+
+These four commands are your DevOps Toolkit for container diagnostics.
+
+--------------------------------
+
+Real-Time DevOps Example
+
+Scenario:
+A containerized Java app (myapp) keeps stopping unexpectedly.
+
+==> Need to check
+
+docker logs myapp     # check app error logs
+docker inspect myapp  # verify restart policy and env vars
+docker top myapp      # see if Java process still running
+docker stats myapp    # monitor CPU/memory leaks
+
+You discover OutOfMemoryError → memory exceeded.
+
+====================================00000000===============================
+
+
+==> How Docker handles Logs internally
+
+- /var/lib/docker/containers/<container-id>/<container-id>-json.log   -> The docker logs command actually reads from that file.That’s why we redirect or mount logs to host volumes for persistence.
+
+-- Redirect Logs to a Host Directory (Persistent Logging)
+- Let’s now save logs outside the container so they persist even if it’s deleted.
+- Create a folder on your host:
+    mkdir -p ~/docker-logs/nginx
+- docker run -d --name nginx-log -p 8085:80 \
+  -v ~/docker-logs/nginx:/var/log/nginx nginx
+

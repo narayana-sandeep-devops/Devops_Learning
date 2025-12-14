@@ -1,0 +1,24 @@
+GIT
+
+VIDEO: 25
+
+- Introduction to GIT
+    - Git is Global Integration Tool)
+    - It is a open source
+    - Any Cloud Provider can use
+    - 2 types of GIT
+        * DVS (Distributed Version Control)
+        * CVS (CVS (Centeralized Version Control)
+    - Git Installation Process
+    - Staging Area, working area
+    - Git Global Configurations
+        - git config --global.username "your-name"      # to Configure username into git
+        - gir config --global.email "email-id"          # to configure email into git
+    - git init      # To intialise git into working directory
+    - git status    # to check the files tracked/untracked
+    - git add .     # to add files from working directory to staging area
+    - git commit -m ""      # to add files staging area to local repository  
+    - git push origin main  # to push the changes from local respository to remote
+
+VIDEO : 26
+    -  

@@ -1,0 +1,257 @@
+MODULE 1: Docker Fundamentals (20 Scenarios)
+
+Learn how containers work, basic commands, and the Docker lifecycle.
+
+1️⃣ Verify Docker installation (hello-world)
+2️⃣ Run your first web container (nginx)
+3️⃣ Run multiple containers simultaneously (nginx + alpine)
+4️⃣ Understand images vs containers
+5️⃣ Detached vs interactive mode (-d & -it)
+6️⃣ Start, stop, restart & remove containers
+7️⃣ Docker restart policies
+8️⃣ Inspect containers (inspect, logs, stats, top)
+9️⃣ Manage container logs (redirect, persist, follow)
+🔟 Cleanup containers, images, and volumes safely
+11️⃣ Understanding Docker Volumes (persistent storage)
+12️⃣ Bind Mounts (host ↔ container live sync)
+13️⃣ Run containers with environment variables
+14️⃣ CMD vs ENTRYPOINT (real difference)
+15️⃣ Container naming & reuse
+16️⃣ Lifecycle deep-dive (create → start → stop → remove)
+17️⃣ Using docker exec vs docker attach
+18️⃣ Monitoring resource usage (stats, top)
+19️⃣ Manage dependencies manually (simulate multiple services)
+20️⃣ Full recap project — from build to cleanup
+
+🧱 MODULE 2: Building Docker Images (20 Scenarios)
+
+Master Dockerfiles, image layering, and build optimizations.
+
+21️⃣ Build your first Dockerfile
+22️⃣ Add files using COPY
+23️⃣ Set working directory (WORKDIR)
+24️⃣ Use RUN, CMD, and ENTRYPOINT properly
+25️⃣ Add environment variables (ENV)
+26️⃣ Expose ports (EXPOSE)
+27️⃣ Add metadata (LABEL)
+28️⃣ Use build arguments (ARG)
+29️⃣ Optimize layers (combine RUN commands)
+30️⃣ Use .dockerignore for smaller builds
+31️⃣ Debug Dockerfile builds
+32️⃣ Compare images using docker history
+33️⃣ Build tagged and versioned images
+34️⃣ Multi-stage builds (first intro)
+35️⃣ Create a custom base image
+36️⃣ Commit container as an image (docker commit)
+37️⃣ Rebuild images efficiently (layer caching)
+38️⃣ Push images to Docker Hub
+39️⃣ Pull and reuse base images
+40️⃣ Real project — build, tag & deploy your own image
+
+☁️ MODULE 3: Docker Registries (30 Scenarios)
+
+Push, pull, manage, and secure images using Docker Hub, AWS ECR, and Azure ACR.
+
+🔹 Docker Hub (10 Scenarios)
+
+41️⃣ Login & push image
+42️⃣ Pull image on another machine
+43️⃣ Private vs public repositories
+44️⃣ Access tokens and secure login
+45️⃣ Automate push with scripts
+46️⃣ Setup CI/CD with Docker Hub
+47️⃣ Add repository description & tags
+48️⃣ Image versioning & naming conventions
+49️⃣ Pull older versions
+50️⃣ Handle authentication issues
+
+🔹 AWS ECR (10 Scenarios)
+
+51️⃣ Create ECR repo (Console)
+52️⃣ Create via CLI
+53️⃣ Authenticate Docker to ECR
+54️⃣ Tag image for ECR
+55️⃣ Push image to ECR
+56️⃣ Pull from EC2
+57️⃣ Configure IAM permissions
+58️⃣ Setup lifecycle policies
+59️⃣ Delete images & repos safely
+60️⃣ Automate Jenkins push to ECR
+
+🔹 Azure ACR (10 Scenarios)
+
+61️⃣ Create ACR (Portal)
+62️⃣ Create via CLI
+63️⃣ Authenticate Docker to ACR
+64️⃣ Tag image for ACR
+65️⃣ Push image to ACR
+66️⃣ Pull from another Azure VM
+67️⃣ Manage RBAC roles
+68️⃣ Enable geo-replication
+69️⃣ Set cleanup policies
+70️⃣ Automate ACR push via Azure DevOps
+
+⚙️ MODULE 4: Working with Containers (20 Scenarios)
+
+Learn advanced container management, environment configs, and data handling.
+
+71️⃣ Environment variables in containers
+72️⃣ Use --env-file for multi-variable injection
+73️⃣ Map ports (-p host:container)
+74️⃣ Mount bind volumes
+75️⃣ Use named volumes for persistence
+76️⃣ Compare bind mounts vs volumes
+77️⃣ Share data between containers
+78️⃣ Use restart policies practically
+79️⃣ Configure container resource limits (--cpus, --memory)
+80️⃣ View container resource stats
+81️⃣ Set container labels
+82️⃣ Manage hostname & network aliases
+83️⃣ Use healthchecks (HEALTHCHECK)
+84️⃣ Auto-restart on health failure
+85️⃣ Manage dependencies (multi-container setup)
+86️⃣ Attach to running container safely
+87️⃣ Container networking basics (bridge, host, none)
+88️⃣ Inspect networks
+89️⃣ Simulate real production dependencies (web + db)
+90️⃣ Full demo: web app connected to database
+
+🧰 MODULE 5: Docker Compose (20 Scenarios)
+
+Orchestrate multi-container applications with a single file.
+
+91️⃣ Install docker-compose
+92️⃣ Write your first docker-compose.yml
+93️⃣ Add multiple services (web + redis)
+94️⃣ Add environment variables in compose
+95️⃣ Add volumes in compose
+96️⃣ Add networks in compose
+97️⃣ Use depends_on for dependencies
+98️⃣ Scale services (--scale)
+99️⃣ Use .env files
+100️⃣ Add healthchecks in compose
+101️⃣ Override YAML files per environment
+102️⃣ Use custom compose project name
+103️⃣ View logs for all services
+104️⃣ Restart or rebuild a specific service
+105️⃣ Stop & clean up stack
+106️⃣ Reuse existing networks
+107️⃣ Mount host configs in compose
+108️⃣ Compose file version 3 deep dive
+109️⃣ Full-stack deployment using compose
+110️⃣ CI/CD pipeline using docker-compose
+
+🔐 MODULE 6: Docker Security (20 Scenarios)
+
+Secure containers, images, and Docker hosts.
+
+111️⃣ Run containers as non-root
+112️⃣ Use user namespaces
+113️⃣ Manage Docker socket access
+114️⃣ Configure TLS between Docker client and daemon
+115️⃣ Scan images (docker scan)
+116️⃣ Manage secrets in Docker
+117️⃣ Restrict container capabilities (cap-drop)
+118️⃣ Use seccomp profiles
+119️⃣ Limit network access
+120️⃣ Set read-only root filesystem
+121️⃣ Audit container actions
+122️⃣ Use AppArmor / SELinux
+123️⃣ Monitor Docker events
+124️⃣ Prevent privilege escalation
+125️⃣ Secure Docker API
+126️⃣ Docker Content Trust (signing images)
+127️⃣ CIS benchmark compliance
+128️⃣ Manage secure build contexts
+129️⃣ Secure sensitive files (.dockerignore)
+130️⃣ Real-world: secure Jenkins and DB containers
+
+⚙️ MODULE 7: Image Optimization & Performance (20 Scenarios)
+
+Build faster, smaller, and efficient Docker images.
+
+131️⃣ Use multi-stage builds
+132️⃣ Use Alpine & Distroless images
+133️⃣ Optimize layer order
+134️⃣ Combine RUN commands
+135️⃣ Cache dependencies
+136️⃣ Compress images
+137️⃣ Use BuildKit for speed
+138️⃣ Use .dockerignore effectively
+139️⃣ Analyze image size (docker history)
+140️⃣ Clean up unnecessary files
+141️⃣ Measure build time
+142️⃣ Use Dive or Slim tools for analysis
+143️⃣ Create minimal base image (scratch)
+144️⃣ Layer reusability best practices
+145️⃣ Parallel build optimization
+146️⃣ Remote cache usage
+147️⃣ CI/CD caching for builds
+148️⃣ Optimize Dockerfile syntax
+149️⃣ Reduce image attack surface
+150️⃣ Real optimization project (Java app → 1/3 size reduction)
+
+🧠 MODULE 8: Docker Networking Deep Dive (20 Scenarios)
+
+Understand how containers communicate internally and externally.
+
+151️⃣ Default bridge network
+152️⃣ Custom bridge networks
+153️⃣ Connect containers across networks
+154️⃣ Attach containers to multiple networks
+155️⃣ Host network mode
+156️⃣ None network (isolation)
+157️⃣ Overlay network basics (intro to swarm)
+158️⃣ macvlan network
+159️⃣ Port exposure & mapping
+160️⃣ Service-to-service DNS
+161️⃣ Inspect container IPs
+162️⃣ Test inter-container ping
+163️⃣ Troubleshoot network issues
+164️⃣ DNS customization
+165️⃣ External networks in compose
+166️⃣ Network policies & firewalls
+167️⃣ Real-time network debugging (tcpdump)
+168️⃣ Bind multiple containers to host IP
+169️⃣ Isolate containers for security
+170️⃣ Simulate microservice communication
+
+💾 MODULE 9: Docker Storage & Data Management (10 Scenarios)
+
+Advanced persistence, backups, and data synchronization.
+
+171️⃣ Named vs anonymous volumes
+172️⃣ Backup & restore volumes
+173️⃣ Share data between containers
+174️⃣ Attach external EBS to Docker volume
+175️⃣ Volume drivers overview (local, NFS, etc.)
+176️⃣ Bind mount vs managed volume comparison
+177️⃣ Schedule automated backups
+178️⃣ Volume cleanup and space optimization
+179️⃣ Encrypted volumes (secure data)
+180️⃣ Real project: backup strategy for MySQL
+
+⚙️ MODULE 10: CI/CD, Monitoring & Troubleshooting (20 Scenarios)
+
+Integrate Docker into CI/CD, and monitor & troubleshoot live environments.
+
+181️⃣ Build Docker images via Jenkins pipeline
+182️⃣ Push image to ECR/ACR in pipeline
+183️⃣ Deploy container automatically post-build
+184️⃣ Monitor container health with Prometheus
+185️⃣ View metrics in Grafana
+186️⃣ Debug stuck containers (docker exec, logs, inspect)
+187️⃣ Fix image pull failures
+188️⃣ Resolve CrashLoopBackOff (app errors)
+189️⃣ Analyze Docker events (docker events)
+190️⃣ Use resource limits effectively
+191️⃣ Collect Docker metrics with cAdvisor
+192️⃣ Integrate Docker logs with ELK stack
+193️⃣ Use healthchecks for self-healing containers
+194️⃣ Manage container dependencies in CI/CD
+195️⃣ Handle parallel builds safely
+196️⃣ Secure build agents
+197️⃣ Troubleshoot permission errors
+198️⃣ Docker socket permission fix
+199️⃣ Full CI/CD pipeline (build → push → deploy → monitor)
+200️⃣ Final Capstone: Real-time DevOps project — microservice stack with monitoring, backup, and self-healing

@@ -1,0 +1,291 @@
+MULTI-CLOUD MASTER ROADMAP (AWS + AZURE + GCP) — 200 SCENARIOS
+
+Each scenario will be explained in 3 clouds side-by-side.
+
+MODULE 1 — IAM / IDENTITIES / ORGANIZATIONS (SCENARIOS 1–15)
+
+Root/Owner Security Setup: MFA, Admin Roles (AWS, Azure AD, GCP IAM)
+Multi-Cloud Admin User Creation & Least Privilege
+IAM Policies / Azure RBAC / GCP IAM Roles
+Service Accounts (AWS Roles, Azure Managed Identity, GCP SA)
+Key Management (AWS KMS, Azure Key Vault, GCP KMS)
+Create Multi-Cloud CLI Profiles
+Identity Center / Azure Entra ID / GCP Identity Federation
+Cross-Account / Cross-Subscription / Cross-Project Access
+Access Analyzer / Azure Privileged Identity Mgmt / GCP IAM Recommender
+Security Baseline Setup in All 3 Clouds
+Multi-cloud MFA + Conditional Access
+Enforce Least Privilege Using Access Logs
+Multi-Cloud Billing & Account Structure
+Incident Scenario — Key Compromise Investigation
+Multi-Cloud RBAC Troubleshooting
+
+MODULE 2 — NETWORKING FOUNDATIONS (SCENARIOS 16–45)
+
+Create VPC / VNet / VPC (GCP)
+Public & Private Subnet Design in all clouds
+NAT Gateway (AWS), NAT Gateway (Azure), Cloud NAT (GCP)
+Network Security Groups / GCP Firewall / AWS SG
+Route Tables & UDRs
+Peering: VPC Peering, VNet Peering, GCP VPC Peering
+Hybrid Connectivity: VPN Gateway in all 3 clouds
+Inter-Cloud VPN (AWS ↔ Azure, Azure ↔ GCP, GCP ↔ AWS)
+DNS Solutions (Route53, Azure DNS, Cloud DNS)
+Private Endpoints (AWS VPCE, Azure Private Link, GCP Private Service Connect)
+Troubleshoot “VM unreachable” (multi-cloud)
+Load Balancer Networking Basics (ELB, Azure LB, GCP LB)
+Firewall Policies (AWS NACL, Azure NSG, GCP Firewall Rules)
+Multi-region network design
+IPv6 Setup in all 3 clouds
+Traffic Mirroring (AWS VPC Traffic, Azure VTAP, GCP Packet Mirroring)
+Flow Logs Comparison (AWS VPC Flow Logs, NSG Flow Logs, GCP Flow Logs)
+Multi-Cloud Hub-Spoke Architecture
+Centralized Firewall Architecture
+Cloud → On-Prem DNS Resolver
+Multi-Cloud API Traffic Routing
+Interconnect / ExpressRoute / Direct Connect
+Cross-Cloud Latency Troubleshooting
+Cloud NAT Cost Optimization
+Multi-Cloud Secure Connectivity Mesh
+Endpoint Access for S3, Blob, GCS
+Private Load Balancer Setup
+Multi-Cloud DNS Failover
+Network DR Planning
+Zero-Trust Networking Designs
+
+MODULE 3 — COMPUTE (SCENARIOS 46–70)
+
+Launch VM/EC2/Compute Engine VM
+SSH/RDP Access with Key Pair in All Clouds
+Custom Images (AMI, Azure Image, GCP Image)
+Auto-Scaling (AWS ASG, Azure VMSS, GCP MIG)
+Spot Instance / Spot VM / Preemptible Instances
+Resize Disk, Expand Volume
+Snapshot Backup & Restore
+Move VM to Another Subnet
+Managed Identities vs IAM Roles vs Service Accounts
+Host Web App with Load Balancer
+Troubleshoot High CPU / Disk latency
+Cloud Monitoring Agents Setup
+Bastion Host Setup (AWS, Azure, GCP)
+Compute Cost Optimization
+Health Checks & Self-Healing Architecture
+Auto-patching in AWS SSM, Azure Automation, GCP OSConfig
+VM Run Command (AWS SSM, Azure RunCommand, GCP SSH-in-browser)
+Autoscale Web App
+Multi-Cloud Failover for Compute
+VM Inventory & Compliance Management
+Multi-Cloud Backup Plan
+Privileged Access Troubleshooting
+Multi-Cloud API Access via VMs
+Cloud-init / Metadata access differences
+Server Hardening Best Practices
+
+MODULE 4 — LOAD BALANCING & HIGH AVAILABILITY (71–95)
+
+ALB vs Azure App Gateway vs GCP HTTPS LB
+Path-Based Routing
+Host-Based Routing
+SSL Certificates (ACM, Key Vault, GCP Certificate Manager)
+CDN Setup (CloudFront, Azure CDN, Cloud CDN)
+WebSocket Support
+Layer 4 LB (NLB, Azure LB, GCP TCP LB)
+Private Load Balancer Setup
+Cross-region Load Balancer Setup
+Troubleshoot LB health check issues
+Blue/Green Deployment using LB
+Weighted Routing
+Multi-Cloud Global Load Balancing
+Reverse Proxy using LB
+Autoscaling Integration with LB
+Sticky Sessions across Clouds
+API Gateway in AWS, Azure APIM, GCP API Gateway
+WAF in All Clouds
+Multi-Cloud High Availability Architecture
+Disaster Recovery Routing
+Multi-Cloud SLA Design
+Load Balancer Logging
+WebSocket LB (comparison)
+LB efficiency & cost optimization
+Edge Network Architecture
+
+MODULE 5 — STORAGE & DATABASE (96–130)
+
+S3 / Blob / GCS Buckets
+Lifecycle Policies
+Bucket Policies / SAS Tokens / Signed URLs
+Cross-Cloud File Transfer
+Versioning
+Replication Cross-Region
+Encryption at Rest
+Static Website Hosting
+Inventory Reports
+Event Notifications (S3, Event Grid, GCS Events)
+Database Comparisons (RDS, Azure SQL, Cloud SQL)
+Multi-AZ Database Setup
+PITR Restore
+Read Replicas
+Failover Testing
+On-Prem → Cloud Migration
+DB Performance Troubleshooting
+Aurora vs Azure Hyperscale vs Cloud Spanner
+DynamoDB vs CosmosDB vs Firestore
+Redis/ElastiCache/Memorystore
+Multi-cloud DB Sync
+Cloud Managed Backups
+Index Optimization
+Serverless DBs (Aurora Serverless, CosmosDB Serverless, Firestore)
+DB Encryption & Keys
+DB Connectivity Issues
+DB Parameter Tuning
+DB Scaling
+Multi-Cloud Data Warehouse (Redshift, Synapse, BigQuery)
+DB Cost Optimization
+Database Caching Strategy
+DB Monitoring
+DB Schema Migration Tools
+Disaster Recovery
+Multi-Cloud Database Strategy
+
+MODULE 6 — SERVERLESS (131–150)
+
+AWS Lambda / Azure Functions / Cloud Functions
+Trigger Functions from Storage (S3/Blob/GCS)
+API Gateway Integration
+Serverless Authentication
+Serverless with DB
+Event-Driven Distributed Apps
+VPC-Integrated Functions
+Secrets Access
+IAM/Managed Identity/Service Account permissions
+Cold Start Optimization
+Serverless Cron Jobs
+Image Processing
+Logging & Monitoring
+Distributed Tracing
+Dead Letter Queues
+Serverless Queues (SQS, Azure Queue, Pub/Sub)
+Event Bus (EventBridge, EventGrid, Pub/Sub)
+Cost Optimization
+Retry Policies
+Multi-Cloud Serverless Migration
+
+MODULE 7 — CONTAINERS (151–175)
+
+ECR / ACR / GCR – Push Docker Images
+ECS / AKS / GKE Introduction
+Deploy Containerized App
+Load Balancer Integration
+Secrets & Config Maps
+Autoscaling Kubernetes
+Node Pools & Spot Nodes
+Logging & Monitoring
+Troubleshoot “ImagePullBackoff”
+CI/CD for Docker
+Multi-Cloud Kubernetes Federation
+Container Networking
+Ingress Setup
+Service Mesh (Istio)
+Blue/Green Deployment
+Canary Deployment
+Rolling Updates
+Multi-Cloud Container DR
+Registry Security
+Image Vulnerability Scanning
+Multi-Cloud Kubernetes HA
+Migrate AKS ↔ EKS ↔ GKE
+Token Authentication
+Pod Identity Mapping
+Production-Ready K8s Design
+
+MODULE 8 — MONITORING / LOGS / SECURITY (176–190)
+
+CloudWatch / Azure Monitor / Cloud Monitoring
+
+Alerts & Notifications
+
+Log Analytics / Cloud Logging
+
+SIEM Integration
+
+IAM Analyzer / Azure Defender / GCP SCC
+
+Detect Security Threats
+
+Network Watcher Tools
+
+Audit Logs & Trails
+
+CloudTrail vs Activity Logs vs Audit Logs
+
+Resource Graph Queries
+
+Detect Public Buckets
+
+Detect Open Ports
+
+Cost Monitoring
+
+Tagging Policies
+
+Governance / Policy Enforcement
+
+MODULE 9 — DEVOPS / AUTOMATION (191–200)
+
+CI/CD Pipelines (CodePipeline, Azure DevOps, Cloud Build)
+
+Infrastructure as Code (CloudFormation, ARM/Bicep, Terraform, Deployment Manager)
+
+GitHub Actions Multi-Cloud Deployment
+
+Blue/Green CI/CD
+
+Rollback Strategies
+
+Secret Management in CI/CD
+
+Artifact Repositories
+
+Multi-Cloud Deployment Pipeline
+
+DR Pipeline Strategy
+
+CAPSTONE PROJECT — Multi-Cloud Enterprise Architecture
+
+⭐ HOW WE WILL PRACTICE EACH SCENARIO
+
+For every scenario, you will get:
+
+✅ 1. Real-time Story
+
+(e.g., “Your company wants to move to multi-cloud for DR…”)
+
+✅ 2. Architecture Explanation
+
+Differences between AWS / Azure / GCP.
+
+✅ 3. Step-By-Step Console Guide
+
+Each cloud separately.
+
+✅ 4. CLI Commands
+
+AWS CLI
+
+Azure CLI
+
+gcloud
+
+PowerShell versions for all
+
+✅ 5. Troubleshooting
+
+Real production issues explained.
+
+✅ 6. Verification Tests
+
+Ping tests / curl tests / logs / metrics.
+
+✅ 7. Assignments
+
+You will do them and confirm before we move to the next scenario.

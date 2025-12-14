@@ -1,0 +1,121 @@
+100 MUST-REMEMBER GIT POINTS FOR DEVOPS ENGINEERS
+🔹 Git Basics
+1.	Git is a distributed version control system used to track code changes.
+2.	Git allows multiple developers to work on the same code safely.
+3.	Every developer has a full copy of the repository locally.
+4.	Git tracks changes using commits, not file versions.
+5.	Each commit represents a snapshot of the project at a point in time.
+6.	Git helps roll back code to previous stable versions.
+7.	Git is mandatory for CI/CD pipelines.
+8.	Git works locally without internet once repository is cloned.
+9.	Git stores history efficiently using hashes.
+10.	Git is faster than centralized version control systems.
+________________________________________
+🔹 Repository & Setup
+11.	Repository is a directory where Git tracks files and history.
+12.	git init creates a new Git repository locally.
+13.	git clone copies a remote repository to local machine.
+14.	.git directory stores complete repository metadata.
+15.	Deleting .git removes version control from project.
+16.	Git repositories can be local or remote.
+17.	GitHub, GitLab, Bitbucket are popular remote Git platforms.
+18.	Remote repositories enable team collaboration.
+19.	Each repository has branches and commit history.
+20.	Repository structure must be clean for maintainability.
+________________________________________
+🔹 Working Directory & Staging
+21.	Working directory contains actual project files.
+22.	Git tracks only files added to repository.
+23.	git status shows file states clearly.
+24.	Staging area prepares files before commit.
+25.	git add moves changes to staging area.
+26.	Staging allows reviewing changes before commit.
+27.	Untracked files are not yet added to Git.
+28.	Modified files are tracked but changed.
+29.	Staged files are ready for commit.
+30.	Clean staging reduces mistakes.
+________________________________________
+🔹 Commits
+31.	Commit saves staged changes permanently in Git history.
+32.	git commit creates a new snapshot.
+33.	Commit messages should be clear and meaningful.
+34.	Small commits are easier to review and revert.
+35.	Each commit has unique SHA hash.
+36.	Commits should represent logical changes.
+37.	Avoid committing broken code.
+38.	Commits enable traceability and auditing.
+39.	Good commit history improves debugging.
+40.	CI pipelines trigger based on commits.
+________________________________________
+🔹 Branching
+41.	Branch is an independent line of development.
+42.	main or master is the default branch.
+43.	Feature branches isolate new development.
+44.	Branching prevents unstable code entering main branch.
+45.	git branch lists available branches.
+46.	git checkout switches branches.
+47.	git switch is modern alternative to checkout.
+48.	Branching enables parallel development.
+49.	Short-lived branches reduce conflicts.
+50.	Branch strategy is critical for teams.
+________________________________________
+🔹 Merging & Rebasing
+51.	Merge combines changes from one branch into another.
+52.	Merge creates a merge commit.
+53.	Merge preserves full history.
+54.	Rebase rewrites commit history.
+55.	Rebase creates cleaner linear history.
+56.	Rebase should not be used on shared branches.
+57.	Merge conflicts occur when same code lines change.
+58.	Conflicts must be resolved manually.
+59.	Understanding conflicts is critical for DevOps.
+60.	Choose merge or rebase based on team policy.
+________________________________________
+🔹 Remote Repositories
+61.	Remote is a shared Git repository.
+62.	git remote -v shows configured remotes.
+63.	origin is default remote name.
+64.	git fetch downloads changes without merging.
+65.	git pull fetches and merges changes.
+66.	git push uploads local commits to remote.
+67.	Always pull before pushing to avoid conflicts.
+68.	Remote access uses HTTPS or SSH.
+69.	SSH keys are preferred for security.
+70.	Remote repositories enable CI/CD integration.
+________________________________________
+🔹 Undo & Recovery
+71.	git log shows commit history.
+72.	git diff shows code differences.
+73.	git reset moves HEAD to another commit.
+74.	Soft reset keeps changes staged.
+75.	Hard reset discards changes permanently.
+76.	git revert creates new commit to undo changes.
+77.	Revert is safer for shared branches.
+78.	Git allows recovering deleted commits.
+79.	Never panic when mistakes happen in Git.
+80.	Git history helps disaster recovery.
+________________________________________
+🔹 Tags & Releases
+81.	Tags mark important commits like releases.
+82.	Lightweight tags are simple references.
+83.	Annotated tags store metadata.
+84.	Tags are used for versioning.
+85.	CI/CD pipelines often trigger on tags.
+86.	Tags make rollback easier.
+87.	Release management depends on tags.
+88.	Tag naming should follow standards.
+89.	Tags should be immutable.
+90.	Production deployments often use tags.
+________________________________________
+🔹 Git in DevOps & Best Practices
+91.	Git is the starting point of CI/CD pipelines.
+92.	Every pipeline begins with code checkout.
+93.	Git history provides audit trail.
+94.	Code reviews improve quality and security.
+95.	Pull requests enforce collaboration.
+96.	Protect main branch from direct commits.
+97.	Automation depends on clean Git workflows.
+98.	Git integrates with all DevOps tools.
+99.	Strong Git fundamentals reduce production issues.
+100.	Mastering Git is mandatory for senior DevOps engineers.
+

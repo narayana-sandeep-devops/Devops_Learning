@@ -1,0 +1,29 @@
+>> VM Management Problem:
+
+1. OS Installation
+2. Time consuming
+3. Manual -- human error
+4. Tough to replicate multi vms
+5. Need to document entire setup
+
+>> Vagrant for VMs 
+1. No OS Installation  
+    - VM Images/Box
+    - Free box avialable on Vagrant cloud
+2. Vagrant file
+    - Manage all vm settings in a file
+    - VM changes through Vaagrantfile
+    - Easy Provisioning
+
+
+>> Step by Step to create a vm using vagrant
+
+- vagrant init <image-name>     ## image name is available vagrant cloud site
+- vagrant up
+- vagrant ssh
+- vagrant halt
+- vagrant global-status
+- vagrant global-status prune
+- vagrant destroy
+
+>>  

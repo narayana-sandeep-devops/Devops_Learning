@@ -50,3 +50,67 @@ Linux For Devops
    - mkdir folder1  -> it creates a folder1
    - rm --- to remove file/folder/directory
    - s
+
+
+
+=================================================================================================================
+
+
+Contents
+
+- Intro to Linux
+- Basics CLI commands
+- Understanding files in Linux
+- Fliters & Redirection
+- Users & Group
+- Sudo
+- Software management
+- Services & Processes
+- Good to know commands
+- Server management
+
+Commands, Files, Softwares and Servers
+
+>> Linux Principles
+- Everything is a file (Including HArdware)
+- Small single purpose programs
+- Ability to chain programs together for complex operations
+- Avoid Captive User interface
+- Configuration data stored in text file
+
+
+>> Why Linux?
+- Open Source
+- Community Support
+- Support wide varity of hardware
+- Customization
+- Most servers runs on Linux
+- Automation
+- Security
+
+
+>> Architecture
+- 
+
+>> Popular Linux Distros
+
+- Popular Desktop Linux OS 
+ * Ubuntu Linux
+ * Linux mint
+ * Arch Linux
+ * Fedora
+ * Debain
+ * Opensuse
+
+ - Popular Server Linux
+  * RHEL
+  * Ubuntu Server
+  * Centos
+  * SUSE Enterprise Linux
+
+>> Most used Linux distro currently in IT Industry
+  - RPM based : RHEL, Centos, Oracle Linux
+  - Debain: Ubuntu Server, Kali Linux
+
+>>
+
