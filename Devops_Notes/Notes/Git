@@ -17,8 +17,72 @@ VIDEO: 25
     - git init      # To intialise git into working directory
     - git status    # to check the files tracked/untracked
     - git add .     # to add files from working directory to staging area
-    - git commit -m ""      # to add files staging area to local repository  
+    - git commit -m ""      # to add files staging area to local repository 
+    - git remote add origin https://github.com/narayana-sandeep-devops/git-demo.git     # add remtoe repository in exisiting folder with files 
     - git push origin main  # to push the changes from local respository to remote
 
+
+
 VIDEO : 26
-    -  
+    -  Git hub is remote respository where we are going to maintain our source code.
+    - here we have 2 types of respositories we can create
+        1. Public
+        2. Private
+    - Git Clone: 
+        * HTTPS
+        * SSH
+
+    - Generating keys in linux machine
+    - Go to .ssh/
+    - type " ssh-keygen"
+    - it will create 2 file "id_rsa" "id_rsa.pub"
+    
+    - git log
+
+VIDEO - 27
+
+    - Token creation Process
+        * settings -> Developer settings -> Personal access -> create token
+        * git remote set-url origin https://<token>/<repository>.git
+    - Check config file in local laptop
+        - cd .git
+        - cat config
+        - it if available the content about you origin, branches etc
+    - git remote -v
+
+    - MAP LOCAL REPO TO REMOTE REPOSITORY
+        - echo "#check" >> README.md
+        - git init
+        - git add README.md
+        - git commit -m "first commit"
+        - git branch -M main
+        - git remote add origin <link>
+        - git push --set-upstream origin main
+        - git push -u origin main
+
+    - git restore <file name>
+    - git restore --stage 
+    - git reset head~1   - dicard changes from local to working directory
+    
+    - git diff   --- compare changes local directory to staging area
+    - git diff --staged     - compare changes staging to local repo
+    - git diff head       -----compare changes local direcotry to local repo
+
+    - git diff commit id to commit id    ---- compare changes in to two commits.
+
+
+
+VIDEO - 28:
+
+    - Branches:
+        - it's an individual process of development for code. we create individual branch in real-time to do test and develope.
+        - Each developer will work on their own branch. At the end we will merge all branches into actual branch.
+        - Default branch is Master(Main)
+
+        - git branch                        -- to list the branches,
+        - git branch dev                    -- to create a new branch
+        - git checkot dev                   -- to switch from one branch to another.
+        - git checkout -b dev               -- to create and switch from one branch to another.
+        - git branch -m oldname newname     -- to rename a branch
+        - git branch -D dev                 -- to delete a branch
+
