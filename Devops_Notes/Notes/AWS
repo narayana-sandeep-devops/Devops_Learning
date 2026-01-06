@@ -1,0 +1,118 @@
+<===============================================>
+AWS:
+Cloud Computing:
+    - 
+-- Deployment and Cloud Services:
+    - Public Cloud
+        - Shared resources open to everyone
+    - Private Cloud
+        - Dedicated resources of organization
+    - Hybrid Cloud
+        - A mix of public and Private
+-- Cloud Service Model
+    - There are 3 main types of service models of cloud computing. Each type of cloud 
+    computing provides levels of control, flexibility and management so that 
+    you'll select the proper set of services for your needs.
+        * IAAS
+        * PASS
+        * SAAS
+            - Subscription basis
+            ex: Amazon Workspace
+-- Virtualization and Hypervisors
+    - Types of Virtualization
+        * Hardware      -   Virtualizes computer hardware components
+        * Storage       -   Aggregates storage into virtual pool.
+        * Network       -   Combines multiple networks into one.
+        * Server        -   Multiple Servers on one.
+        * Application   -   Runs apps independently of OS
+    -  Steps of Virtualization
+        * Disaster Recovery
+        * Isolation
+        * flexibility
+        * Resource Efficiency
+        * Cost Savings
+        * Faster Provisioning
+    - Hypervisor:
+        * A hypervisor is a software that enables multiple operating systems to run on a single 
+        physical machine simaltanueously. It created and manages virtual machines, allowing 
+        efficient resource utlization and Isolation of different computing envrionments on 
+        the same hardware.
+        * Types of Hyper visors.
+            - Type - 1 (bare metal)
+            - Type - 2 ( Hosted)
+    - virtualization in AWS
+        * AWS achieves virtualization using XEN hypervisor. Every AWS AMI uses the bare metal
+        Xen Hypervisor. Xen offers 2 types of virtualization
+            - HVM (Hardware Virtual machine)
+            - PV (Paravirtualization) Efficiency
+
+ -- AWS Suite (With Analogy)
+    - Storage (S3, EBS)
+    - Network (VPC)
+    - Databases (RDS)
+    - Compute (EC2)
+    - Monitoring (CloudWatch)
+    - Machine Learning
+
+-- AWS Well-Architectured Framework
+    - This Architecture build up on 6 major pillars
+        * Operational Excellence
+            - The operrational excellence pillar is about able to effectively support and
+            run workloads, understand how they operate, and continusouly improve processos to 
+            deliver business value.
+            - It provides guidance on best practices and design principles for achieving these goals,
+            focusing on areas such as DevOps practices, infrastructure as Code, automation, and 
+            observability.
+            - The operational excellence pillar provides an overview of design principles, 
+            best practices, and questions.
+
+        * Cost Optimization
+            - The Cose Optimization pillar in AWS is about systems to deliver business value
+            to the lowest possible cost.
+            - The cost Optimization pillar is one of the six pillars of the AWS Well-Architected 
+            Framework, which helps cloud architects build secure, high-performing, resilient, and 
+            efficient infrastructre for their applications.
+        
+        * Reliability
+            - The Reliability pillar in AWS is about ensuring that a workload can consistently 
+            perform its intended function and can be operated ant tested throughut its entire 
+            lifecycle. It provides detailed guidance on best pracitces for implementing 
+            reliable workloads on AWS.
+            - The pillar emphasizes the importance odf strong foundations, resilient architecture, 
+            consistent change management, and proven failure recovery processes.
+
+        * Performance Efficiency
+                - The Performance Efficiency pillar in the AWS Well-Architected Framework focuses
+                on using computing resources effiently to meet system requriements and maintaining
+                that efficiency as demand changes and technologies evolve.
+                - The pillar emphasizes the efficient use of computing resources, the selection
+                of the best performing architecture, and the use of advanced tachnolgies such as 
+                serverless architectures and machine learning to improve performance.
+
+        * Security
+            - The security pillar of AWS is about protecting data, systems and assets using cloud 
+            technologies to enhance security.
+            - It provides guidance on best preactices and design principles for achieving these 
+            goals, focusing on areas such as strong identity management, infrastructure protection,
+            and preparation for security events.
+            - The Security pillar includes seven design priciples for security in the cloud. 
+            such as implementing a strong identity foundation, enability tracebility, and 
+            applying security at all layers.
+
+        * Sustainability
+                - The Sustainability pillar in the Well-Architected Framework socuses on minimizing
+                the envrionmental impacts of running cloud workloads, particulaly in terms of 
+                energy consumption and efficiency.
+                - It provides guidance on a shared responsibility model for sustainability, 
+                understanding impact, maximinisizing usage to minize required resources, and reducing 
+                downstream impacts.
+                - The pillar emphzsizes the imporatnace of making informed decisions to balance security,
+                cost, performance, reliability, and operational excellence with sustainability outcomes
+                for workloads on AWS.
+    
+    -- 
+
+        
+        
+
+    

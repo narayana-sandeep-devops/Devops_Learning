@@ -1,4 +1,5 @@
 FROM ubuntu
-RUN apt-get update -y
-CMD ["echo", "Hello from Dockerfile"]
-
+COPY copy.txt /tmp
+ADD add.txt /tmp
+ADD compress.tar.gz /tmp
+CMD ["sh"]

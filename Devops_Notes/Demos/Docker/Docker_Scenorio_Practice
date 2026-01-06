@@ -1,0 +1,153 @@
+<======>
+Scenario 1 — Run your first Docker container (hello-world) and verify Docker is working
+- $sudo docker run --rm hello-world
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+--> Docker tourbleshooting steps if not working (basic)
+- sudo systemctl status docker
+- sudo systemctl start docker    # to start it
+- sudo journalctl -u docker -n 50  # view logs
+
+
+==============================================================================================
+--> Scenario 2 – Run a Real Web Server Container (NGINX)
+
+- docker run -d --name mynginx -p 8080:80 nginx
+    - Breaking it Down
+        - docker run -->	Start a new container. This is how you launch any image
+        - -d -->  Detached mode	Runs in background so your terminal stays free
+        - --name mynginx --> Assigns a readable name. Easier to manage later instead of long container IDs
+        - -p 8080:80 -->Maps port 8080 (host) → 80 (container).	Port 80 is default inside NGINX; 8080 is the one you’ll access in browser
+        - nginx -->	Image name	Docker pulls this image from Docker Hub automatically if not already downloaded
+
+==============================================================================================
+
+--> Scenario 3 – Run Multiple Containers Simultaneously (NGINX + Alpine)
+
+===============================================================================================
+
+--> Scenario 4 – Understand “Images vs Containers” (with Real-Life Analogy & Commands)
+
+Docker Image --> A blueprint or recipe,	Like a cake recipe — tells what ingredients and steps to use, but it’s not the cake itself.
+Docker Container -->The actual cake baked from that recipe - It’s the running (or ready-to-eat) instance created from that image.
+
+- The image is the template (static).
+- The container is the runtime instance (dynamic).
+
+--> Convert Container Back to Image
+- docker commit myalpine mycustomimage:v1
+    - myalpine - <running container name>
+    - mycustomimage:v1 - new custom image name
+
+--> Check Restart Policy for Any Container
+    - docker inspect -f "{{ .HostConfig.RestartPolicy.Name }}" test4
+
+    - Default Behavior (no restart policy)
+        * docker run -d --name test1 nginx
+    - Always Restart
+        * docker run -d --name test2 --restart=always nginx
+            >>Meaning:
+                > If container crashes → Docker restarts it.
+                > If Docker daemon restarts → Docker restarts it again.
+                > If the system reboots → Docker auto-starts it after reboot.
+    - Restart Only on Failure
+        * docker run -d --name test3 --restart=on-failure:3 myscript
+            >> Meaning:
+                > If the container exits with a non-zero code (crash), Docker retries up to 3 times.
+                > If it succeeds or you stop it manually, it won’t restart.
+    - Restart Unless Stopped
+        * docker run -d --name test4 --restart=unless-stopped nginx
+            >> Meaning:
+                > If system or Docker restarts → container starts automatically.
+                > If you manually stopped it (docker stop test4), it stays stopped until you start it again.
+        Note: Best for most DevOps services (e.g., Jenkins, monitoring tools, internal apps).
+
+>>> Inspect Container Details & Monitor in Real-Time
+    >> Imagine you’re on-call as a DevOps Engineer 🚨. Your container is running fine, but the developer says: “My app stopped responding!”
+        > You need to quickly find why — check:
+            * How the container was started
+            * Which ports are mapped
+            * What environment variables are inside
+            * Whether the process is running
+            * How much CPU and memory it’s using
+    >> Start a Test Container
+        > docker run -d --name inspect-nginx -p 8083:80 nginx
+        > docker logs inspect-nginx   ## Check the logs of http
+        > docker logs -f inspect-nginx  ## check the logs live (Realtime Logs)
+        > docker inspect inspect-nginx    # Inspect full container configuration
+        > docker top inspect-nginx      ## it checks the actual linux processes inside the cotnainer
+        > docker stats      # Monitor Resource Usage (Docker host)
+    >> Realtime Issue
+        > A containerized Java app (myapp) keeps stopping unexpectedly.
+        > Run the above commands to find the issue
+        > You discover OutOfMemoryError → memory exceeded.
+        > Now you know to fix it with memory limits (--memory=512m).
+    
+>>> Manage Docker Container Logs (View, Redirect & Persist Logs)
+    >> Understand Where Docker Stores Logs on Host (In production, logs can fill up disk quickly.)
+        > docker inspect -f '{{.LogPath}}' logdemo   ## this command shows the logs path in docker host for containers
+            - /var/lib/docker/containers/abcd1234ef56/logdemo-json.log
+    >> Configure Log Rotation (Prevent Log Overgrowth)
+        > docker run -d --name logrotate \
+            --log-opt max-size=10m \
+            --log-opt max-file=3 \
+            nginx
+            ## Each log file will be max 10MB, Docker will keep 3 files total, then rotate (delete oldest)
+    >> Change Logging Driver (For Integration)
+        > Docker supports multiple logging drivers, e.g.:
+            - json-file → default (local file)
+            - syslog → send logs to Linux syslog
+            - journald → systemd integration
+            - fluentd, gelf, awslogs, splunk → for centralized log systems
+
+        > Ex: docker run -d --name syslog-nginx \
+                --log-driver=syslog nginx
+            - This sends all container logs directly to system syslog.
+
+        > Realtime Use case: In enterprise DevOps, logs are shipped to systems like ELK (Elasticsearch, Logstash, Kibana) or AWS CloudWatch using log drivers.
+    >> Redirect Logs to File on Host (Persistent Logging)
+        > Sometimes you want logs stored in a folder you control.
+        > docker run -d --name hostlogs \
+            -v /home/sandeep/nginx-logs:/var/log/nginx \
+            nginx
+            - This mounts your host directory (/home/sandeep/nginx-logs) into the container’s NGINX log directory.
+            - Logs are now written directly to your host file system and stay persistent even if the container is deleted.
+            - Check " ls /home/sandeep/nginx-logs "
+            - you'll find access.log & error.log
+    >> Realtime Usecase:
+        > You have 3 NGINX containers behind a load balancer. Each generates logs, and you want to collect them for analysis.
+        > Approach:
+            - Mount a host volume for logs from each container → e.g., /logs/nginx1, /logs/nginx2, /logs/nginx3.
+            - Or, configure a centralized logging driver (fluentd or awslogs).
+            - Then use Grafana/ELK to visualize logs and performance.
+        
+>>>  Clean Up Containers, Images & Volumes Safely (Docker System Maintenance)
+    >> Learn to manage disk space and keep your Docker environment healthy.
+    >> See What’s Using Your Disk
+        > docker system df
+        > TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+          Images          10        3         3.4GB     2.0GB (58%)
+          Containers      6         2         1.1GB     900MB (80%)
+          Local Volumes   5         2         2.3GB     1.5GB (65%)
+          Build Cache                         1.0GB     800MB
+        > Based on the above table, delete the unwanted images, containers & volumes
+    >> Automate Docker Cleanup (for CI/CD Servers)
+        > On Jenkins, GitLab, or build servers, space fills up often. You can automate cleanup using a simple cron job:
+            - sudo crontab -e
+            - 0 2 * * * docker system prune -af --volumes
+            ## This will auto-clean your Docker system every night at 2AM
+            - 
+
+
+
+
