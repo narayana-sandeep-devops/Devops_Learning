@@ -1,0 +1,11 @@
+- AWS Global Infrastructure:
+    => Regions - country level
+    => Availability Zone: to provide high availability feature
+    => Local Zone: to provide low latency access to the data
+
+    => AWS Wavelength - 5G
+    => AWS outposts - Publc cloud & private cloud
+
+    => Edge Location - CDN
+    => Regional Edge Caches
+
