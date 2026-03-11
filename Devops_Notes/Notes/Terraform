@@ -1,0 +1,106 @@
+TERRAFORM:
+
+- Terraform is IAC (Infrastructure as Code)
+- It is open source tool
+- Providers Hashicorp but IBM is aquired Hashicorp
+- Terraform is designed by Go language
+- we can write our code in two language
+    - JSON
+    - HCL (Hashicorp Language)
+- All files should be .tf 
+
+
+-------------------------------------------------
+
+List files in order:
+
+- Provider.tf   -> Need to add provider details
+- main.tf       -> all resource details ex EC2, S3, VPC etc
+- variables.tf  -> pass the values instead hard coding in main.tf
+- output.tf     ->  to get output values like instance id, public ip etc
+- terraform.tfvars
+
+
+- access key and secret keys are stored in .aws folder in local machine
+- Terraform Registry:
+    - aws
+    - Azure
+    - GCP
+
+--> Important commands in Terraform
+    - Terraform init : initialize all working plugins to folder from terraform registry.
+    - Terraform apply : Created resources as per main.tf
+    - Terrform plan : 
+
+
+-- Terraform init triggers to provider.tf -> terraform registry -> provider plugins -> working directory.
+--  Terraform apply
+
+
+Day02:
+
+- Install Visual Studio
+- Download Terraform
+- Install Terraform
+
+-- Terraform init : it initialize the provider plugins
+-- terraform validate : it validates the script
+-- Terraform plan - it provide explains what script to going to execute
+-- terraform apply -auto-approve
+-- terraform destroy
+
+
+Day03:
+
+- implemented VPc using terraform
+- TFvars file explanation
+
+Day04:
+
+- output.tf
+- State file : It monitors terraform state
+- State file cloking mechanism: to avoid multiple developers send request at a same time.
+    to configure locking mechanism, we need to use amazon dynamodb
+
+
+Day05:
+
+- Terraform Import:
+    Existing infra(manual) we can give control to terraform by using terraform import.
+
+Day-07
+
+- Terraform datasources
+- userdata
+- Terraform lifecycle
+
+Day-08
+
+- keypair
+- Provisioners: if we want run commands inside the EC2 using terraform
+    ** we have 3 types of provisioners
+        -> Local-exec     -- Local Executable
+        -> Remote-exec    -- Remote Executable
+        -> File provisioners   -- file uploads into remote
+    
+- Workspace:
+    ** terraform workspace
+    Subcommands:
+    delete    Delete a workspace
+    list      List Workspaces
+    new       Create a new workspace
+    select    Select a workspace
+    show      Show the name of the current workspace
+    ** $terraform workspace show
+    ** $terraform workspace new prod
+    ** $terraform workspace list
+    ** $terraform workspace select prod
+
+Day-09:
+
+- Modules:
+
+
+
+
+
